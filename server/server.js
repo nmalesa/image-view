@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const {connection, retrieveRandomProducts} = require('../db/index.js');
+const {connection, retrieveImage} = require('../db/index.js');
 
 app.use(cors());
 // app.use('/', express.static('public'));
@@ -11,7 +11,7 @@ app.use(cors());
 // app.use('/styleSheet', express.static('public/styles.css'));
 
 app.get('/', (req, res) => {
-  retrieveRandomProducts((error, results) => {
+  retrieveImage((error, results) => {
     if (error) {
       res.send(error);
     } else {

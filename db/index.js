@@ -9,8 +9,8 @@ const connection = mariadb.createConnection({
   database: 'images'
 });
 
-const retrieveRandomProducts = callback => {
-  connection.query('SELECT * FROM products ORDER BY RAND() LIMIT 2', (error, results) => {
+const retrieveImage = (callback) => {
+  connection.query('SELECT * FROM products ORDER BY RAND() LIMIT 1', (error, results) => {
     if (error) {
       callback(error, null);
     } else {
@@ -19,7 +19,7 @@ const retrieveRandomProducts = callback => {
   });
 };
 
-module.exports = {connection, retrieveRandomProducts};
+module.exports = {connection, retrieveImage};
 
 // const test = callback => {
 //   connection.query("SELECT 1 + 1 AS solution", (error, results) => {
