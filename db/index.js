@@ -1,31 +1,56 @@
-const mariadb = require('mariadb');
-require('dotenv').config()
+// MARIADB CALLBACK API
+const mariadb = require('mariadb/callback');
+require('dotenv').config();
 
-const pool = mariadb.createPool({
+const connection = mariadb.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  connectionLimit: 5
+  database: image_view
 });
 
-async function asyncFunction() {
-  let conn;
-  try {
-      conn = await pool.getConnection();
-      const rows = await conn.query("SELECT 1 as val");
-      console.log(rows); // rows: [ { val: 1}, meta: ... ]
+connection.connect();
 
-      const res = await conn.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
-      console.log(res); // res: { affectedRows: 1, insertId: 1, warningStatus: 0 }
-  } catch (err) {
-      throw err;
-  } finally {
-    // if (conn) conn.release(); // release to pool
-      if (conn) return conn.end();
-  }
-}
+const test = callback => {
+  connection.query("SELECT 1 + 1 AS solution", (error, results){
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+  });
+};
 
-module.exports = {pool, asyncFunction};
+module.exports = {connection, test};
+
+
+// MARIADB PROMISE API -- DEFAULT
+
+// const mariadb = require('mariadb');
+// require('dotenv').config()
+//
+// const pool = mariadb.createPool({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   connectionLimit: 5
+// });
+
+// async function asyncFunction() {
+//   let conn;
+//   try {
+//       conn = await pool.getConnection();
+//       const rows = await conn.query("SELECT 1 as val");
+//       console.log(rows); // rows: [ { val: 1}, meta: ... ]
+//
+//       const res = await conn.query("INSERT INTO myTable value (?, ?)", [1, "mariadb"]);
+//       console.log(res); // res: { affectedRows: 1, insertId: 1, warningStatus: 0 }
+//   } catch (err) {
+//       throw err;
+//   } finally {
+//     // if (conn) conn.release(); // release to pool
+//       if (conn) return conn.end();
+//   }
+// }
+
+// MARK'S MYSQL CODE
 
 // const mysqlConfig = require('./config.js');
 //

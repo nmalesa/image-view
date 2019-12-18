@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const {pool, asyncFunction} = require('../db/index.js');
+const {connection, test} = require('../db/index.js');
 
 app.use(cors());
 app.use('/', express.static('public'));
@@ -11,7 +11,7 @@ app.use('/bundle', express.static('public/bundle.js'));
 app.use('/styleSheet', express.static('public/styles.css'));
 
 app.get('/test', (req, res) => {
-  asyncFunction((error, results) => {
+  asyncFunction(() => {
     if (error) {
       res.send(error);
     } else {

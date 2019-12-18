@@ -1,18 +1,17 @@
-DROP DATABASE IF EXISTS Image_View;
+DROP DATABASE IF EXISTS image_view;
 
-CREATE DATABASE Image_View;
+CREATE DATABASE image_view;
 
-USE Image_View;
+USE image_view;
 SET character_set_client=utf8, character_set_connection=utf8, character_set_database=utf8, character_set_results=utf8, character_set_server=utf8;
 
-CREATE TABLE Products (
-  id int NOT NULL AUTO_INCREMENT,
+CREATE TABLE products (
+  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   images int NOT NULL,
   videoEmbed VARCHAR(100),
   videoThumb VARCHAR(100),
-  description VARCHAR(150),
-  PRIMARY KEY (ID)
+  description VARCHAR(150)
 );
 
 
