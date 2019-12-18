@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const {connection, retrieveImage, addImage, modifyImage} = require('../db/index.js');
+const {connection, retrieveImage, addImage, modifyImage, deleteImage} = require('../db/index.js');
 
 app.use(cors());
 // app.use('/', express.static('public'));
@@ -32,6 +32,16 @@ app.post('/products', (req, res) => {
 
 app.put('/products/:id', (req, res) => {
   modifyImage(req.params.id, (error, results) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(results);
+    }
+  });
+});
+
+app.delete('/products/:id', (req, res) => {
+  deleteImage(req.params.id, (error, results) => {
     if (error) {
       res.send(error);
     } else {

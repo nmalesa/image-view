@@ -42,8 +42,18 @@ const modifyImage = (id, callback) => {
   });
 };
 
+// CRUD Operations - DELETE
+const deleteImage = (id, callback) => {
+  connection.query('DELETE FROM products WHERE id=?', [id], (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
 
-module.exports = {connection, retrieveImage, addImage, modifyImage};
+module.exports = {connection, retrieveImage, addImage, modifyImage, deleteImage};
 
 
 // const test = callback => {
