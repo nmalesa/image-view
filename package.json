@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/mfuechec/Mark_Image-View-Service.git"
   },
-  "author": "Mark Fuechec",
+  "authors": "Mark Fuechec and Natalia Malesa",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Gabe-Lee/Carousels-Service/issues"
@@ -24,7 +24,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
-    "mysql": "^2.17.1",
+    "mariadb": "^2.1.4",
     "nodejs": "0.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
