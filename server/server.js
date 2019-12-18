@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const {connection, retrieveImage} = require('../db/index.js');
+const {connection, retrieveImage, addImage} = require('../db/index.js');
 
 app.use(cors());
 // app.use('/', express.static('public'));
@@ -12,6 +12,16 @@ app.use(cors());
 
 app.get('/:id', (req, res) => {
   retrieveImage(req.params.id, (error, results) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(results);
+    }
+  });
+});
+
+app.post('/', (req, res) => {
+  addImage((error, results) => {
     if (error) {
       res.send(error);
     } else {

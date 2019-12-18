@@ -21,12 +21,18 @@ const retrieveImage = (id, callback) => {
 };
 
 // CRUD Operations - POST
-// const addImage = callback => {
-//   connection.query('INSERT INTO (name, images, videoEmbed, videoThumb, description) VALUES ')
-// };
+const addImage = callback => {
+  connection.query('INSERT INTO products (name, images, videoEmbed, videoThumb, description) VALUES ("TestName", 3, "TestVideo", "TestVideo2", "This is a test")', (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
 
 
-module.exports = {connection, retrieveImage};
+module.exports = {connection, retrieveImage, addImage};
 
 // const test = callback => {
 //   connection.query("SELECT 1 + 1 AS solution", (error, results) => {
