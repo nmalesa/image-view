@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const {connection, retrieveImage, addImage} = require('../db/index.js');
+const {connection, retrieveImage, addImage, modifyImage} = require('../db/index.js');
 
 app.use(cors());
 // app.use('/', express.static('public'));
@@ -10,7 +10,7 @@ app.use(cors());
 // app.use('/bundle', express.static('public/bundle.js'));
 // app.use('/styleSheet', express.static('public/styles.css'));
 
-app.get('/:id', (req, res) => {
+app.get('/products/:id', (req, res) => {
   retrieveImage(req.params.id, (error, results) => {
     if (error) {
       res.send(error);
@@ -20,8 +20,18 @@ app.get('/:id', (req, res) => {
   });
 });
 
-app.post('/', (req, res) => {
+app.post('/products', (req, res) => {
   addImage((error, results) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(results);
+    }
+  });
+});
+
+app.put('/products/:id', (req, res) => {
+  modifyImage(req.params.id, (error, results) => {
     if (error) {
       res.send(error);
     } else {

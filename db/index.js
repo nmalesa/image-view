@@ -31,8 +31,20 @@ const addImage = callback => {
   });
 };
 
+// CRUD Operations - PUT
+const modifyImage = (id, callback) => {
+  connection.query('UPDATE products SET description="This is a new description" WHERE id=?', [id], (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
 
-module.exports = {connection, retrieveImage, addImage};
+
+module.exports = {connection, retrieveImage, addImage, modifyImage};
+
 
 // const test = callback => {
 //   connection.query("SELECT 1 + 1 AS solution", (error, results) => {
