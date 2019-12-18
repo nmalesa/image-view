@@ -9,8 +9,9 @@ const connection = mariadb.createConnection({
   database: 'images'
 });
 
-const retrieveImage = (callback) => {
-  connection.query('SELECT * FROM products ORDER BY RAND() LIMIT 1', (error, results) => {
+// CRUD Operations - GET
+const retrieveImage = (id, callback) => {
+  connection.query('SELECT * FROM products WHERE id=?', [id], (error, results) => {
     if (error) {
       callback(error, null);
     } else {
@@ -18,6 +19,12 @@ const retrieveImage = (callback) => {
     }
   });
 };
+
+// CRUD Operations - POST
+// const addImage = callback => {
+//   connection.query('INSERT INTO (name, images, videoEmbed, videoThumb, description) VALUES ')
+// };
+
 
 module.exports = {connection, retrieveImage};
 

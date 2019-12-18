@@ -10,8 +10,8 @@ app.use(cors());
 // app.use('/bundle', express.static('public/bundle.js'));
 // app.use('/styleSheet', express.static('public/styles.css'));
 
-app.get('/', (req, res) => {
-  retrieveImage((error, results) => {
+app.get('/:id', (req, res) => {
+  retrieveImage(req.params.id, (error, results) => {
     if (error) {
       res.send(error);
     } else {
