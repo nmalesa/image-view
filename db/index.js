@@ -6,19 +6,31 @@ const connection = mariadb.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  database: image_view
+  database: 'images'
 });
 
-connection.connect();
-
-const test = callback => {
-  connection.query("SELECT 1 + 1 AS solution", (error, results){
-    if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
+const retrieveRandomProducts = callback => {
+  connection.query('SELECT * FROM products ORDER BY RAND() LIMIT 2', (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
   });
 };
 
-module.exports = {connection, test};
+module.exports = {connection, retrieveRandomProducts};
+
+// const test = callback => {
+//   connection.query("SELECT 1 + 1 AS solution", (error, results) => {
+//     if (error) {
+//       callback(error, null);
+//     } else {
+//       console.log('The solution is: ', results[0].solution);
+//     }
+//   });
+// };
+
 
 
 // MARIADB PROMISE API -- DEFAULT

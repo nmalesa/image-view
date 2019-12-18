@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS image_view;
+DROP DATABASE IF EXISTS images;
 
-CREATE DATABASE image_view;
+CREATE DATABASE images;
 
-USE image_view;
+USE images;
 SET character_set_client=utf8, character_set_connection=utf8, character_set_database=utf8, character_set_results=utf8, character_set_server=utf8;
 
 CREATE TABLE products (
@@ -24,7 +24,7 @@ CREATE TABLE products (
  First 20
  */
 
- INSERT INTO Products VALUES (
+ INSERT INTO products VALUES (
    id,
    'ANTILOP',
    6,
@@ -32,7 +32,7 @@ CREATE TABLE products (
    null,
    'High chair with tray, white silver color, silver color'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'TOBIAS',
    3,
@@ -40,7 +40,7 @@ CREATE TABLE products (
    null,
    'Chair, clear, chrome plated'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'HAVSTEN',
    8,
@@ -48,7 +48,7 @@ CREATE TABLE products (
    'https://img.youtube.com/vi/gnHDOmifrfA/0.jpg',
    'Chair, in/outdoor, beige, 32 5/8x37x35 3/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'GLENN',
    7,
@@ -56,7 +56,7 @@ CREATE TABLE products (
    null,
    'Bar stool, white, chrome plated, 26 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'FRANKLIN',
    6,
@@ -64,7 +64,7 @@ CREATE TABLE products (
    null,
    'Bar stool with backrest, foldable, white, white, 24 3/4 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'JULES',
    7,
@@ -72,7 +72,7 @@ CREATE TABLE products (
    null,
    'Childs desk chair, white'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ÖRFJÄLL',
    7,
@@ -80,7 +80,7 @@ CREATE TABLE products (
    null,
    'Swivel chair, white, Vissle blue'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'GRÖNADAL',
    7,
@@ -88,7 +88,7 @@ CREATE TABLE products (
    null,
    'Rocking chair, gray, natural'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'VÅGSBERG / SPORREN',
    7,
@@ -96,7 +96,7 @@ CREATE TABLE products (
    null,
    'Swivel chair, black'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'DIETMAR',
    1,
@@ -104,7 +104,7 @@ CREATE TABLE products (
    null,
    'Underframe for armchair, chrome plated'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'LANGUR',
    2,
@@ -112,7 +112,7 @@ CREATE TABLE products (
    null,
    'High chair tray, white'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'JOKKMOKK',
    5,
@@ -120,7 +120,7 @@ CREATE TABLE products (
    null,
    'Table and 4 chairs, antique stain'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'STEFAN',
    7,
@@ -128,7 +128,7 @@ CREATE TABLE products (
    null,
    'Chair, brown-black'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'BALTSAR',
    6,
@@ -136,7 +136,7 @@ CREATE TABLE products (
    null,
    'Chair, black-blue, brown'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'HARRY',
    5,
@@ -144,7 +144,7 @@ CREATE TABLE products (
    null,
    'Chair, black, Knisa light gray'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'MARIUS',
    7,
@@ -152,7 +152,7 @@ CREATE TABLE products (
    null,
    'Stool, black'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'MARTIN',
    5,
@@ -160,7 +160,7 @@ CREATE TABLE products (
    null,
    'Chair, black, black'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'TROLLBERGET',
    6,
@@ -168,7 +168,7 @@ CREATE TABLE products (
    'https://img.youtube.com/vi/4sexn7JH5_s/0.jpg',
    'Sit/stand support, Glose black'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'KOLON',
    2,
@@ -176,7 +176,7 @@ CREATE TABLE products (
    null,
    'Floor protector, 47 1/4x39 3/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'MALINDA',
    3,
@@ -189,7 +189,7 @@ CREATE TABLE products (
  Second 20
  */
 
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'GONATT',
    8,
@@ -197,7 +197,7 @@ CREATE TABLE products (
    null,
    'Crib, light gray, 27 1/2x52 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'NORDLI',
    8,
@@ -205,7 +205,7 @@ CREATE TABLE products (
    null,
    'Bed with headboard and storage, white, King'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SAGSTUA',
    8,
@@ -213,7 +213,7 @@ CREATE TABLE products (
    null,
    'Bed frame, black, Full'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'GODFJORD',
    5,
@@ -221,7 +221,7 @@ CREATE TABLE products (
    null,
    'Bed frame, gray, Queen'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SONGESAND',
    6,
@@ -229,7 +229,7 @@ CREATE TABLE products (
    null,
    'Bed frame with 4 storage boxes, brown, Full/Double'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'DELAKTIG',
    5,
@@ -237,7 +237,7 @@ CREATE TABLE products (
    null,
    'Bed frame/headboard/2 side tables, aluminum, rattan, Queen'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'HEMNES',
    4,
@@ -245,7 +245,7 @@ CREATE TABLE products (
    null,
    'Bed frame with 4 storage boxes, dark gray stained, Leirsund, Queen'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ESPEVÄR',
    2,
@@ -253,7 +253,7 @@ CREATE TABLE products (
    null,
    'Divan bed, Mausund medium firm, natural, Queen'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'UTÅKER',
    8,
@@ -261,7 +261,7 @@ CREATE TABLE products (
    null,
    'Stackable bed with 2 mattresses, pine, Husvika, Twin'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'KVALFJORD',
    5,
@@ -269,7 +269,7 @@ CREATE TABLE products (
    null,
    'Bed frame, Risane natural, Luröy, Queen'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'NEIDEN',
    7,
@@ -277,7 +277,7 @@ CREATE TABLE products (
    null,
    'Bed frame, pine birch, Luröy, Full'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'HEMMAHOS',
    2,
@@ -285,7 +285,7 @@ CREATE TABLE products (
    null,
    'Childrens tent, caravan'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'LÖVA',
    3,
@@ -293,7 +293,7 @@ CREATE TABLE products (
    null,
    'Bed canopy, green'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'MINNEN',
    8,
@@ -301,7 +301,7 @@ CREATE TABLE products (
    null,
    'Ext bed frame with slatted bed base, white, 38 1/4x74 3/4 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SLÄKT',
    8,
@@ -309,7 +309,7 @@ CREATE TABLE products (
    null,
    'Bed frame w/storage+slatted bedbase, white, Twin'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'VITVAL',
    8,
@@ -317,7 +317,7 @@ CREATE TABLE products (
    null,
    'Loft bed frame with desk top, white, light gray, Twin'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'TUFFING',
    5,
@@ -325,7 +325,7 @@ CREATE TABLE products (
    null,
    'Bunk bed frame, dark gray, Twin'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'NORDDAL',
    3,
@@ -333,7 +333,7 @@ CREATE TABLE products (
    null,
    'Bunk bed frame, black-brown, Twin'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'MYDAL',
    5,
@@ -341,7 +341,7 @@ CREATE TABLE products (
    null,
    'Bunk Bed, pine, twin'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ALLEMANSRÄTTEN',
    5,
@@ -354,7 +354,7 @@ CREATE TABLE products (
  Third 20
  */
 
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'HAMNSKÄR',
    7,
@@ -362,7 +362,7 @@ CREATE TABLE products (
    null,
    'Bronze Faucet'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'LILLSVAN',
    5,
@@ -370,7 +370,7 @@ CREATE TABLE products (
    null,
    'chrome plated faucet'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'VOXNAN',
    6,
@@ -378,7 +378,7 @@ CREATE TABLE products (
    null,
    'tall chrome faucet'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'RUNSKÄR',
    6,
@@ -386,7 +386,7 @@ CREATE TABLE products (
    null,
    'chrome faucet, two knobs'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'STOCKHOLM',
    3,
@@ -394,7 +394,7 @@ CREATE TABLE products (
    null,
    'Mirror, walnut veneer, 23 5/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ISFJORDEN',
    3,
@@ -402,7 +402,7 @@ CREATE TABLE products (
    null,
    'Floor mirror, black-brown stain,'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'KAITUM',
    3,
@@ -410,7 +410,7 @@ CREATE TABLE products (
    null,
    'Mirror with built-in light, battery operated'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'IKORNNES',
    8,
@@ -418,7 +418,7 @@ CREATE TABLE products (
    null,
    'Table mirror, ash'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'GODMORGON',
    3,
@@ -426,7 +426,7 @@ CREATE TABLE products (
    null,
    'Box with lid, set of 5, smoked'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SAXBORGA',
    6,
@@ -434,7 +434,7 @@ CREATE TABLE products (
    null,
    'Jar with lid and tray, set of 5'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SKÅDIS',
    2,
@@ -442,7 +442,7 @@ CREATE TABLE products (
    null,
    'Pegboard combination, white,'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'LOCKIG',
    4,
@@ -450,7 +450,7 @@ CREATE TABLE products (
    null,
    'Childrens potty, white green, green'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SAXBORGA',
    8,
@@ -458,7 +458,7 @@ CREATE TABLE products (
    null,
    'Storage box with mirrored lid, plastic cork'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'LÅDDAN',
    7,
@@ -466,7 +466,7 @@ CREATE TABLE products (
    null,
    '6-piece storage board set, with suction cups, mixed colors assorted colors'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'DOPPA',
    5,
@@ -474,7 +474,7 @@ CREATE TABLE products (
    null,
    'Bathtub mat, light gray, 13x33'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'TISKEN',
    8,
@@ -482,7 +482,7 @@ CREATE TABLE products (
    null,
    'Basket with suction cup, white'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'LILLÅNGEN',
    7,
@@ -490,7 +490,7 @@ CREATE TABLE products (
    null,
    'Sink, white, 16 1/8x16x5 1/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'GUTVIKEN',
    4,
@@ -498,7 +498,7 @@ CREATE TABLE products (
    null,
    'Countertop sink, white'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'TÖRNVIKEN',
    5,
@@ -506,7 +506,7 @@ CREATE TABLE products (
    null,
    'Countertop sink, white, 17 3/4 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ODENSVIK',
    4,
@@ -519,7 +519,7 @@ CREATE TABLE products (
  Fourth 20
  */
 
-   INSERT INTO Products VALUES (
+   INSERT INTO products VALUES (
    id,
    'DUKTIG',
    2,
@@ -527,7 +527,7 @@ CREATE TABLE products (
    null,
    'kids cooking set'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'LILLABO',
    4,
@@ -543,7 +543,7 @@ CREATE TABLE products (
    null,
    'play carpet'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'VURM',
    4,
@@ -551,7 +551,7 @@ CREATE TABLE products (
    null,
    'wine rack'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'KUNGSFORS',
    4,
@@ -559,7 +559,7 @@ CREATE TABLE products (
    null,
    'dish drainer'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ORDNING',
    5,
@@ -567,7 +567,7 @@ CREATE TABLE products (
    null,
    'utensil holder'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'TORKAD',
    3,
@@ -575,7 +575,7 @@ CREATE TABLE products (
    null,
    'paper towel holder'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'IDEALISK',
    3,
@@ -583,7 +583,7 @@ CREATE TABLE products (
    null,
    'corkscrew'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'JAMFORA',
    4,
@@ -591,7 +591,7 @@ CREATE TABLE products (
    null,
    '3-piece knife set'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ANDLIG',
    5,
@@ -599,7 +599,7 @@ CREATE TABLE products (
    null,
    '3-piece knife set'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'FÖRDUBBLA',
    2,
@@ -607,7 +607,7 @@ CREATE TABLE products (
    null,
    '2-piece knife set'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'FÖRSLAG',
    3,
@@ -615,7 +615,7 @@ CREATE TABLE products (
    null,
    '3-piece knife set'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'VÖRDA',
    2,
@@ -623,7 +623,7 @@ CREATE TABLE products (
    null,
    '3-piece knife set'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'DRAGON',
    6,
@@ -631,7 +631,7 @@ CREATE TABLE products (
    null,
    '20-piece flatware set'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'MATLUST',
    2,
@@ -639,7 +639,7 @@ CREATE TABLE products (
    null,
    'chopping board'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SKYDD',
    4,
@@ -647,7 +647,7 @@ CREATE TABLE products (
    null,
    'wood treatmeant oil, indoor use'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'APTITLIG',
    5,
@@ -655,7 +655,7 @@ CREATE TABLE products (
    null,
    'butcher block'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'GRUNKA',
    6,
@@ -663,7 +663,7 @@ CREATE TABLE products (
    null,
    '4-piece cooking utensil set'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'GUBBRÖRA',
    4,
@@ -671,7 +671,7 @@ CREATE TABLE products (
    null,
    'rubber spatula'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'JÄMFÖRLIG',
    5,
@@ -684,7 +684,7 @@ CREATE TABLE products (
  Fifth 20
  */
 
-   INSERT INTO Products VALUES (
+   INSERT INTO products VALUES (
    id,
    'KÖTTBULLAR',
    1,
@@ -692,7 +692,7 @@ CREATE TABLE products (
    null,
    'Meatballs, frozen'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'FANBYN',
    3,
@@ -700,7 +700,7 @@ CREATE TABLE products (
    null,
    'Bar table and 4 bar stools, white, white'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'FANBYN',
    1,
@@ -708,7 +708,7 @@ CREATE TABLE products (
    null,
    'Bar stool with backrest, white, 25 1/4 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'FRÖSÖN/DUVHOLMEN',
    3,
@@ -716,7 +716,7 @@ CREATE TABLE products (
    null,
    'Seat pad, outdoor, beige, 24 3/8x24 3/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ÄPPLARÖ',
    7,
@@ -724,7 +724,7 @@ CREATE TABLE products (
    null,
    'Drop-leaf table, outdoor, brown stained brown, 55 1/8/78 3/4/102 3/8x30 3/4 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ÄPPLARÖ',
    2,
@@ -732,7 +732,7 @@ CREATE TABLE products (
    null,
    'Bench, outdoor, brown stained brown, 44 7/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ÄPPLARÖ',
    8,
@@ -740,7 +740,7 @@ CREATE TABLE products (
    null,
    'Chaise, brown stained brown'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ÄPPLARÖ',
    6,
@@ -748,7 +748,7 @@ CREATE TABLE products (
    null,
    'Reclining chair, outdoor, brown foldable brown stained brown'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'FRÖSÖN/DUVHOLMEN',
    3,
@@ -756,7 +756,7 @@ CREATE TABLE products (
    null,
    'Back cushion, outdoor, beige, 24 3/8x17 3/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'HAVSTEN',
    7,
@@ -764,7 +764,7 @@ CREATE TABLE products (
    'https://img.youtube.com/vi/gnHDOmifrfA/0.jpg',
    'Loveseat, in/outdoor, without armrests with open end, beige, 64 5/8x37x35 3/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'BROMMÖ',
    5,
@@ -772,7 +772,7 @@ CREATE TABLE products (
    null,
    'Chaise, outdoor, brown stained black, brown'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ÄPPLARÖ',
    3,
@@ -780,7 +780,7 @@ CREATE TABLE products (
    null,
    'Armchair, outdoor, brown stained brown'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'HÅLLÖ',
    4,
@@ -788,7 +788,7 @@ CREATE TABLE products (
    null,
    'Seat pad, outdoor, black, 24x24 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SOLLERÖN',
    8,
@@ -796,7 +796,7 @@ CREATE TABLE products (
    null,
    '3-seat modular sofa, outdoor, with footstool brown brown, Frösön/Duvholmen beige, 87 3/4x56 3/4x34 5/8 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'ÄPPLARÖ',
    4,
@@ -804,7 +804,7 @@ CREATE TABLE products (
    null,
    'Table+2 benches, outdoor, brown stained'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'TÄRNÖ',
    5,
@@ -812,7 +812,7 @@ CREATE TABLE products (
    null,
    'Chair, outdoor, foldable acacia black, gray-brown stained steel light brown stained'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'TOSTERÖ',
    5,
@@ -820,7 +820,7 @@ CREATE TABLE products (
    null,
    'Cover for outdoor furniture, sofa, black, 102 3/8x65 "'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'KLÖVEN',
    2,
@@ -828,7 +828,7 @@ CREATE TABLE products (
    null,
    '4-seat conversation set, outdoor, brown stained, Frösön/Duvholmen beige'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'SOLLERÖN',
    5,
@@ -836,7 +836,7 @@ CREATE TABLE products (
    null,
    '4-seat conversation set, outdoor, dark gray, Frösön/Duvholmen beige'
  );
-  INSERT INTO Products VALUES (
+  INSERT INTO products VALUES (
    id,
    'OTTERÖN / INNERSKÄR',
    6,
