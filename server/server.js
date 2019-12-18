@@ -1,16 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const connection = require('../db/index.js');
+const {connection, retrieveRandomProducts} = require('../db/index.js');
 
 app.use(cors());
-app.use('/', express.static('public'));
+// app.use('/', express.static('public'));
 
 
-app.use('/bundle', express.static('public/bundle.js'));
-app.use('/styleSheet', express.static('public/styles.css'));
+// app.use('/bundle', express.static('public/bundle.js'));
+// app.use('/styleSheet', express.static('public/styles.css'));
 
-app.get('/products', (req, res) => {
+app.get('/', (req, res) => {
   retrieveRandomProducts((error, results) => {
     if (error) {
       res.send(error);
