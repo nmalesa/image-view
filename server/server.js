@@ -1,33 +1,67 @@
 const express = require('express');
 const cors = require('cors');
+const faker = require('faker');
+const _ = require('lodash');
 const app = express();
-const {connection, retrieveImage, addImage, modifyImage, deleteImage} = require('../db/index.js');
+const port = process.env.PORT || 3010;
+const {pool, retrieveImage, addImage, modifyImage, deleteImage} = require('../db/index.js');
 
 app.use(cors());
+app.use(express.json());
 // app.use('/', express.static('public'));
 
 
 // app.use('/bundle', express.static('public/bundle.js'));
 // app.use('/styleSheet', express.static('public/styles.css'));
+app.use(express.urlencoded({extended: true}));
 
-app.get('/products/:id', (req, res) => {
-  retrieveImage(req.params.id, (error, results) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.send(results);
-    }
-  });
-});
+const product = {
+  id: 1, // Increment by 1
+  name: faker.commerce.productName(),
+  images: _.random(1, 9),
+  videoEmbed: 'https://www.youtube.com/watch?v=UcTLJ692F70', // Change to random YouTube link generator
+  videoThumb: faker.image.imageUrl(),
 
-app.post('/products', (req, res) => {
-  addImage((error, results) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.send(results);
-    }
-  });
+}
+
+// app.get('/products/:id', (req, res) => {
+//   retrieveImage(req.params.id, (error, results) => {
+//     if (error) {
+//       res.send(error);
+//     } else {
+//       res.send(results);
+//     }
+//   });
+// });
+
+app.get('/products', async (req, res) => {
+  try {
+    let image = await retrieveImage();
+
+
+    await res.send(image);
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+// app.post('/products', async (req, res) => {
+//   addImage((error, results) => {
+//     if (error) {
+//       res.send(error);
+//     } else {
+//       res.send(results);
+//     }
+//   });
+// });
+
+app.post('/products', async (req, res) => {
+  try {
+    let image = await addImage();
+    await res.send(image);
+  } catch (error) {
+    res.send(error);
+  }
 });
 
 app.put('/products/:id', (req, res) => {
@@ -60,6 +94,4 @@ app.delete('/products/:id', (req, res) => {
 //     })
 // });
 
-app.listen(3010, function() {
-    console.log('listening')
-});
+app.listen(port, console.log(`Listening on port ${port}...`));

@@ -5,6 +5,9 @@ function MainImage(props) {
     const images = [];
     var leftSvg;
     var rightSvg;
+
+    // if (props.selectedItemId % 1000)
+
     if (props.videoEmbed !== null) {
         var video = [<iframe id='video' key='videoPlayer' playsInline src={props.videoEmbed}></iframe>];
     } else {
@@ -13,9 +16,10 @@ function MainImage(props) {
         rightSvg = <svg onClick={props.onScroll} id="rightSvg" className="right" ><path className="right" d="M12.29,18.37l1.42,1.4L21.41,12,13.7,4.36,12.3,5.78,17.57,11H4v2H17.6Z"></path></svg>
     }
     for (var i = 1; i < props.numOfImgs + 1; i++) {
-        var image = `https://mark-ikea-image-view.s3.us-east-2.amazonaws.com/${props.selectedItemId}/Image-${i}.jpeg`;
+        var image = `https://mark-ikea-image-view.s3.us-east-2.amazonaws.com/${props.selectedItemId}/Image-${i}.jpg`;
         images.push(<img onClick={props.onClick} className='mainImages' key={i} src={image} />);
     };
+
     const imageNum = props.imgNum;
     const width = {
         width: imageNum*100 + ' %'

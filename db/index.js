@@ -1,35 +1,44 @@
 // MARIADB CALLBACK API
-const mariadb = require('mariadb/callback');
+const mariadb = require('mariadb');
 require('dotenv').config();
 
-const connection = mariadb.createConnection({
+const pool = mariadb.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
+  connectionLimit: 5,
   database: 'images'
 });
 
+// const connection = mariadb.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   database: 'images'
+// });
+
 // CRUD Operations - GET
-const retrieveImage = (id, callback) => {
-  connection.query('SELECT * FROM products WHERE id=?', [id], (error, results) => {
-    if (error) {
-      callback(error, null);
-    } else {
-      callback(null, results);
-    }
-  });
-};
+// const retrieveImage = (id, callback) => {
+//   connection.query('SELECT * FROM products WHERE id=?', [id], (error, results) => {
+//     if (error) {
+//       callback(error, null);
+//     } else {
+//       callback(null, results);
+//     }
+//   });
+// };
 
 // CRUD Operations - POST
-const addImage = callback => {
-  connection.query('INSERT INTO products (name, images, videoEmbed, videoThumb, description) VALUES ("TestName", 3, "TestVideo", "TestVideo2", "This is a test")', (error, results) => {
-    if (error) {
-      callback(error, null);
-    } else {
-      callback(null, results);
-    }
-  });
-};
+// const addImage = callback => {
+//   connection.query('INSERT INTO products (name, images, videoEmbed, videoThumb, description) VALUES ("TestName", 3, "TestVideo", "TestVideo2", "This is a test")', (error, results) => {
+//     if (error) {
+//       callback(error, null);
+//     } else {
+//       callback(null, results);
+//     }
+//   });
+// };
+
 
 // CRUD Operations - PUT
 const modifyImage = (id, callback) => {
@@ -53,7 +62,7 @@ const deleteImage = (id, callback) => {
   });
 };
 
-module.exports = {connection, retrieveImage, addImage, modifyImage, deleteImage};
+
 
 
 // const test = callback => {
@@ -79,6 +88,29 @@ module.exports = {connection, retrieveImage, addImage, modifyImage, deleteImage}
 //   password: process.env.DB_PASS,
 //   connectionLimit: 5
 // });
+
+async function addImage() {
+  let connection;
+  try {
+    let rows = await connection.query('INSERT INTO products (name, images, videoEmbed, videoThumb, description) VALUES ("TestName", 3, "TestVideo", "TestVideo2", "This is a test")');
+    await console.log(rows);
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function retrieveImage() {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    let getRequest = await connection.query('SELECT * FROM products WHERE id=18');
+    return getRequest;
+  } catch (error) {
+    throw error;
+  }
+}
+
+
 
 // async function asyncFunction() {
 //   let conn;
@@ -117,3 +149,5 @@ module.exports = {connection, retrieveImage, addImage, modifyImage, deleteImage}
 // // module.export functions
 //
 // module.exports.getImage = getImage;
+
+module.exports = {pool, retrieveImage, addImage, modifyImage, deleteImage};
