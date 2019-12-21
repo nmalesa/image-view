@@ -13,19 +13,28 @@ app.use(express.urlencoded({extended: true}));
 const product = {
   id: 1, // Increment by 1
   name: faker.commerce.productName(),
-  images: _.random(1, 9),
+  primary_image: faker.image.imageUrl(),
   videoEmbed: 'https://www.youtube.com/watch?v=UcTLJ692F70', // Change to random YouTube link generator
-  videoThumb: faker.image.imageUrl(),
+  description: faker.company.catchPhrase()
 };
 
-// app.get('/test', async (req, res) => {
-//   try {
-//     let test = await console.log('Hello World');
-//     res.send(test);
-//   } catch (error) {
-//     res.send(error);
-//   }
-// });
+const thumbnails = {
+  product_id: _.random(1, 10000000),
+  thumb_1: faker.image.imageUrl(),  // Or null (randomize)
+  thumb_2: faker.image.imageUrl(),
+  thumb_3: faker.image.imageUrl(),
+  thumb_4: faker.image.imageUrl(),
+  thumb_5: faker.image.imageUrl()
+};
+
+app.get('/test', async (req, res) => {
+  try {
+    let test1 = await console.log(thumbnails);
+    res.send(test1);
+  } catch (error) {
+    res.send(error);
+  }
+});
 
 app.get('/products/:id', async (req, res) => {
   try {
