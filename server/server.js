@@ -8,11 +8,6 @@ const {pool, retrieveImage, addImage, modifyImage, deleteImage} = require('../db
 
 app.use(cors());
 app.use(express.json());
-// app.use('/', express.static('public'));
-
-
-// app.use('/bundle', express.static('public/bundle.js'));
-// app.use('/styleSheet', express.static('public/styles.css'));
 app.use(express.urlencoded({extended: true}));
 
 const product = {
@@ -21,77 +16,42 @@ const product = {
   images: _.random(1, 9),
   videoEmbed: 'https://www.youtube.com/watch?v=UcTLJ692F70', // Change to random YouTube link generator
   videoThumb: faker.image.imageUrl(),
-
 }
 
-// app.get('/products/:id', (req, res) => {
-//   retrieveImage(req.params.id, (error, results) => {
-//     if (error) {
-//       res.send(error);
-//     } else {
-//       res.send(results);
-//     }
-//   });
-// });
-
-app.get('/products', async (req, res) => {
+app.get('/products/:id', async (req, res) => {
   try {
-    let image = await retrieveImage();
-
-
-    await res.send(image);
-  } catch (error) {
-    console.log(error);
-  }
-})
-
-// app.post('/products', async (req, res) => {
-//   addImage((error, results) => {
-//     if (error) {
-//       res.send(error);
-//     } else {
-//       res.send(results);
-//     }
-//   });
-// });
-
-app.post('/products', async (req, res) => {
-  try {
-    let image = await addImage();
-    await res.send(image);
+    let retrievedImage = await retrieveImage(req.params.id);
+    res.send(retrievedImage);
   } catch (error) {
     res.send(error);
   }
 });
 
-app.put('/products/:id', (req, res) => {
-  modifyImage(req.params.id, (error, results) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.send(results);
-    }
-  });
+app.post('/products', async (req, res) => {
+  try {
+    let newImage = await addImage();
+    res.send(newImage);
+  } catch (error) {
+    res.send(error);
+  }
 });
 
-app.delete('/products/:id', (req, res) => {
-  deleteImage(req.params.id, (error, results) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.send(results);
-    }
-  });
+app.put('/products/:id', async (req, res) => {
+  try {
+    let modifiedImage = await modifyImage(req.params.id);
+    res.send(modifiedImage);
+  } catch (error) {
+    res.send(error);
+  }
 });
 
-// app.get(`/:id`, function (req, res) {
-//     db.getImage(req.params.id, (error, result) => {
-//         if (error) {
-//             res.send(error);
-//         } else {
-//             res.send(result);
-//         }
-//     })
-// });
+app.delete('/products/:id', async (req, res) => {
+  try {
+    let deletedImage = await deleteImage(req.params.id);
+    res.send(deletedImage);
+  } catch (error) {
+    res.send(error);
+  }
+});
 
 app.listen(port, console.log(`Listening on port ${port}...`));
