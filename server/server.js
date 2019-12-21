@@ -16,7 +16,16 @@ const product = {
   images: _.random(1, 9),
   videoEmbed: 'https://www.youtube.com/watch?v=UcTLJ692F70', // Change to random YouTube link generator
   videoThumb: faker.image.imageUrl(),
-}
+};
+
+// app.get('/test', async (req, res) => {
+//   try {
+//     let test = await console.log('Hello World');
+//     res.send(test);
+//   } catch (error) {
+//     res.send(error);
+//   }
+// });
 
 app.get('/products/:id', async (req, res) => {
   try {

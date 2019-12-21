@@ -9,39 +9,17 @@ const pool = mariadb.createPool({
   database: 'images'
 });
 
-
-
-
-
-
-
-
-
-
-
-
-// MARIADB PROMISE API -- DEFAULT
-
-// const mariadb = require('mariadb');
-// require('dotenv').config()
-//
-// const pool = mariadb.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASS,
-//   connectionLimit: 5
-// });
-
 // CRUD OPERATIONS - GET
 async function retrieveImage(id) {
   let connection;
   try {
     connection = await pool.getConnection();
     let getRequest = await connection.query(`SELECT * FROM products WHERE id=${id}`);
-    console.log(getRequest);
     return getRequest;
   } catch (error) {
     throw error;
+  } finally {
+    if (connection) connection.release();
   }
 };
 
@@ -54,6 +32,8 @@ async function addImage() {
     return postRequest;
   } catch (error) {
     throw error;
+  } finally {
+    if (connection) connection.release();
   }
 };
 
@@ -66,6 +46,8 @@ async function modifyImage(id) {
     return putRequest;
   } catch (error) {
     throw error;
+  } finally {
+    if (connection) connection.release();
   }
 };
 
@@ -79,6 +61,8 @@ async function deleteImage(id) {
     return deleteRequest;
   } catch (error) {
     throw error;
+  } finally {
+    if (connection) connection.release();
   }
 };
 
