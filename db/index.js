@@ -3,19 +3,6 @@ const faker = require('faker');
 const _ = require('lodash');
 require('dotenv').config();
 
-
-
-
-
-const thumbnails = {
-  product_id: _.random(1, 10000000),
-  thumb_1: faker.image.imageUrl(),  // Or null (randomize)
-  thumb_2: faker.image.imageUrl(),
-  thumb_3: faker.image.imageUrl(),
-  thumb_4: faker.image.imageUrl(),
-  thumb_5: faker.image.imageUrl()
-};
-
 const pool = mariadb.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -43,8 +30,21 @@ async function addImage(name, primary_image, video_embed, description) {
   let connection;
   try {
     connection = await pool.getConnection();
-    let postRequest = await connection.query(`INSERT INTO products (name, primary_image, video_embed, description) VALUES (?, ?, ?, ?)`, [name, primary_image, video_embed, description]);
-    return postRequest;
+    let postImageRequest = await connection.query(`INSERT INTO products (name, primary_image, video_embed, description) VALUES (?, ?, ?, ?)`, [name, primary_image, video_embed, description]);
+    return postImageRequest;
+  } catch (error) {
+    throw error;
+  } finally {
+    if (connection) connection.release();
+  }
+};
+
+async function addThumbnails(product_id, thumb_1, thumb_2, thumb_3, thumb_4, thumb_5) {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    let postThumbRequest = await connection.query(`INSERT INTO thumbnails (product_id, thumb_1, thumb_2, thumb_3, thumb_4, thumb_5) VALUES (?, ?, ?, ?, ?, ?)`, [product_id, thumb_1, thumb_2, thumb_3, thumb_4, thumb_5]);
+    return postThumbRequest;
   } catch (error) {
     throw error;
   } finally {
@@ -99,4 +99,4 @@ async function deleteImage(id) {
 //   }
 // }
 
-module.exports = {pool, retrieveImage, addImage, modifyImage, deleteImage};
+module.exports = {pool, retrieveImage, addImage, addThumbnails, modifyImage, deleteImage};
