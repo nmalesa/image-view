@@ -1,5 +1,20 @@
 const mariadb = require('mariadb');
+const faker = require('faker');
+const _ = require('lodash');
 require('dotenv').config();
+
+
+
+
+
+const thumbnails = {
+  product_id: _.random(1, 10000000),
+  thumb_1: faker.image.imageUrl(),  // Or null (randomize)
+  thumb_2: faker.image.imageUrl(),
+  thumb_3: faker.image.imageUrl(),
+  thumb_4: faker.image.imageUrl(),
+  thumb_5: faker.image.imageUrl()
+};
 
 const pool = mariadb.createPool({
   host: process.env.DB_HOST,
@@ -14,7 +29,7 @@ async function retrieveImage(id) {
   let connection;
   try {
     connection = await pool.getConnection();
-    let getRequest = await connection.query(`SELECT * FROM products WHERE id=${id}`);
+    let getRequest = await connection.query(`SELECT * FROM products WHERE id=?`, [id]);
     return getRequest;
   } catch (error) {
     throw error;
@@ -24,11 +39,11 @@ async function retrieveImage(id) {
 };
 
 // CRUD OPERATIONS - POST
-async function addImage() {
+async function addImage(name, primary_image, video_embed, description) {
   let connection;
   try {
     connection = await pool.getConnection();
-    let postRequest = await connection.query('INSERT INTO products (name, images, videoEmbed, videoThumb, description) VALUES ("TestName", 3, "TestVideo", "TestVideo2", "This is a test")');
+    let postRequest = await connection.query(`INSERT INTO products (name, primary_image, video_embed, description) VALUES (?, ?, ?, ?)`, [name, primary_image, video_embed, description]);
     return postRequest;
   } catch (error) {
     throw error;
