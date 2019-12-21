@@ -10,11 +10,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+const video_id = faker.random.alphaNumeric(11);
+
 const product = {
   id: 1, // Increment by 1
   name: faker.commerce.productName(),
   primary_image: faker.image.imageUrl(),
-  videoEmbed: 'https://www.youtube.com/watch?v=UcTLJ692F70', // Change to random YouTube link generator
+  video_embed: `https://www.youtube.com/watch?v=${video_id}`, 
   description: faker.company.catchPhrase()
 };
 
@@ -29,7 +31,7 @@ const thumbnails = {
 
 app.get('/test', async (req, res) => {
   try {
-    let test1 = await console.log(thumbnails);
+    let test1 = await console.log(product);
     res.send(test1);
   } catch (error) {
     res.send(error);
