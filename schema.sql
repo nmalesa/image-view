@@ -15,11 +15,10 @@ CREATE TABLE products (
 
 CREATE TABLE thumbnails (
   thumb_id INT PRIMARY KEY AUTO_INCREMENT,
-  product_id INT NOT NULL,
   thumb_1 TEXT,
   thumb_2 TEXT,
   thumb_3 TEXT,
   thumb_4 TEXT,
   thumb_5 TEXT,
-  FOREIGN KEY (product_id) REFERENCES products(id)
+  FOREIGN KEY (thumb_id) REFERENCES products(id)
 );

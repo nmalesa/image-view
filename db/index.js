@@ -41,9 +41,10 @@ async function addImage(name, primary_image, video_embed, description) {
 
 async function addThumbnails(product_id, thumb_1, thumb_2, thumb_3, thumb_4, thumb_5) {
   let connection;
+  console.log(product_id);
   try {
     connection = await pool.getConnection();
-    let postThumbRequest = await connection.query(`INSERT INTO thumbnails (product_id, thumb_1, thumb_2, thumb_3, thumb_4, thumb_5) VALUES (?, ?, ?, ?, ?, ?)`, [product_id, thumb_1, thumb_2, thumb_3, thumb_4, thumb_5]);
+    let postThumbRequest = await connection.query('INSERT INTO thumbnails (product_id, thumb_1, thumb_2, thumb_3, thumb_4, thumb_5) VALUES (?, ?, ?, ?, ?, ?)', [product_id, thumb_1, thumb_2, thumb_3, thumb_4, thumb_5]);
     return postThumbRequest;
   } catch (error) {
     throw error;

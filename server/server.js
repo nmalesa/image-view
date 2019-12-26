@@ -1,7 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const faker = require('faker');
-const _ = require('lodash');
 const app = express();
 const port = process.env.PORT || 3010;
 const {pool, retrieveImage, addImage, addThumbnails, modifyImage, deleteImage} = require('../db/index.js');
@@ -9,24 +7,6 @@ const {pool, retrieveImage, addImage, addThumbnails, modifyImage, deleteImage} =
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
-const video_id = faker.random.alphaNumeric(11);
-
-const product = {
-  name: faker.commerce.productName(),
-  primary_image: faker.image.imageUrl(),
-  video_embed: `https://www.youtube.com/watch?v=${video_id}`,
-  description: faker.company.catchPhrase()
-};
-
-const thumbnails = {
-  product_id: _.random(1, 10000000),
-  thumb_1: faker.image.imageUrl(),  // Or null (randomize)
-  thumb_2: faker.image.imageUrl(),
-  thumb_3: faker.image.imageUrl(),
-  thumb_4: faker.image.imageUrl(),
-  thumb_5: faker.image.imageUrl()
-};
 
 // CRUD OPERATIONS - GET
 app.get('/products/:id', async (req, res) => {

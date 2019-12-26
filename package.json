@@ -7,7 +7,7 @@
     "client": "webpack -d --watch",
     "build": "webpack --mode production",
     "start": "nodemon ./server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon csvGenerator.js"
   },
   "repository": {
     "type": "git",
@@ -27,9 +27,11 @@
     "faker": "^4.1.0",
     "lodash": "^4.17.15",
     "mariadb": "^2.1.4",
+    "node-gyp": "^5.0.7",
     "nodejs": "0.0.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "rebuild": "^0.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
