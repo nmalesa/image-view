@@ -1,5 +1,46 @@
 const faker = require('faker');
 const _ = require('lodash');
+const fs = require('fs');
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+
+// const csvWriter = createCsvWriter({
+//   path: 'test.csv',
+//   header: [
+//     {id: 'name', title: 'name'},
+//     {id: 'primary_image', title: 'primary_image'},
+//     {id: 'video_embed', title: 'video_embed'},
+//     {id: 'description', title: 'description'}
+//   ]
+// });
+
+const csvWriter = createCsvWriter({
+  path: 'out.csv',
+  header: [
+    {id: 'name', title: 'Name'},
+    {id: 'surname', title: 'Surname'},
+    {id: 'age', title: 'Age'},
+    {id: 'gender', title: 'Gender'},
+  ]
+});
+
+const data = [
+  {
+    name: 'John',
+    surname: 'Snow',
+    age: 26,
+    gender: 'M'
+  }, {
+    name: 'Clair',
+    surname: 'White',
+    age: 33,
+    gender: 'F',
+  }, {
+    name: 'Fancy',
+    surname: 'Brown',
+    age: 78,
+    gender: 'F'
+  }
+];
 
 const video_id = faker.random.alphaNumeric(11);
 
@@ -71,4 +112,5 @@ if (thumbnails.thumb_4 !== null) {
   thumbnails.thumb_5 = null;
 }
 
-console.log(thumbnails);
+csvWriter.writeRecords(data)
+  .then(() => console.log('The CSV file was written succssfully'));
