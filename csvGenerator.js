@@ -68,12 +68,13 @@ if (thumbnails[0].thumb_4 !== null) {
   thumbnails[0].thumb_5 = null;
 }
 
-const writeImages = fs.createWriteStream('images.csv');
+// Writing a large amount of data to a csv file using Node's drain event
+const writeImages = fs.createWriteStream('images_10.csv');
 writeImages.write('id,name,primary_image,video_embed,description\n', 'utf-8');
 
-function writeTenMillionImages(writer, encoding, callback) {
-  let i = 10000000;
-  let id = 0;
+function writeOneMillionImages(writer, encoding, callback) {
+  let i = 1000000;
+  let id = 9000000;
   function write() {
     let ok = true;
     do {
@@ -101,15 +102,6 @@ function writeTenMillionImages(writer, encoding, callback) {
 write()
 }
 
-writeTenMillionImages(writeImages, 'utf-8', () => {
+writeOneMillionImages(writeImages, 'utf-8', () => {
   writeImages.end();
 });
-
-// const stream = fs.createWriteStream(path.resolve(__dirname, `images.csv`));
-// stream.once('open', (fd) => {
-//   stream.write('ID, Name, Image, Video, Description\n', 'utf-8'); // <-- you need a new line for each row
-//   for (let idx = 0; idx < 10; idx++) {
-//     stream.write(`${idx},${faker.commerce.productName()},${faker.image.image()},${_.random(1, 10) <= 5 ? `https://www.youtube.com/watch?v=${faker.random.alphaNumeric(11)}` : null},${faker.company.catchPhrase()}\n`, 'utf-8'); //  <-- dont forget to new line
-//   } // MAKE SURE YOUR ID IS UNIQUE, EVEN ACROSS FILES!
-//   stream.end();
-// });
