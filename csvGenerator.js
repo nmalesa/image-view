@@ -114,15 +114,40 @@ const fifthThumb = fourthThumb => {
   return fourthThumb !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null;
 };
 
-console.log(firstThumb());
+Promise.resolve(firstThumb())
+  .then(_firstThumb => {
+    console.log('FIRST:', _firstThumb);
+    return secondThumb(_firstThumb);
+  })
+  .then(_secondThumb => {
+    console.log('SECOND:', _secondThumb);
+    return thirdThumb(_secondThumb);
+  })
+  .then(_thirdThumb => {
+    console.log('THIRD:', _thirdThumb);
+    return fourthThumb(_thirdThumb);
+  })
+  .then(_fourthThumb => {
+    console.log('FOURTH:', _fourthThumb);
+    return fifthThumb(_fourthThumb);
+  })
+  .then(_fifthThumb => {
+    console.log('FIFTH:', _fifthThumb);
+  })
+  .catch(err => {
+    console.error('Error in thumb chain', err);
+  });
 
-console.log(secondThumb(firstThumb()));
-
-console.log(thirdThumb(secondThumb()));
-
-console.log(fourthThumb(thirdThumb()));
-
-console.log(fifthThumb(fourthThumb()));
+// Non Promise Chain form of tests
+// console.log('First:', firstThumb());
+//
+// console.log('Second:', secondThumb(firstThumb()));
+//
+// console.log('Third:', thirdThumb(secondThumb()));
+//
+// console.log('Fourth:', fourthThumb(thirdThumb()));
+//
+// console.log('Fifth:', fifthThumb(fourthThumb()));
 
 
 // Writing a large amount of data to a csv file using Node's drain event
@@ -166,40 +191,40 @@ console.log(fifthThumb(fourthThumb()));
 // });
 //
 // // SEED THUMBNAILS TABLE
-// const writeThumbnails = fs.createWriteStream('test.csv');
-// writeThumbnails.write('thumb_id,thumb_1,thumb_2,thumb_3,thumb_4,thumb_5\n', 'utf-8');
-//
-// function writeOneMillionThumbnails(writer, encoding, callback) {
-//   let i = 10;
-//   let thumb_id = 0;
-//   function write() {
-//     let ok = true;
-//     do {
-//       i -= 1;
-//       thumb_id += 1;
-//       const thumb_1 = firstThumb;
-//       const thumb_2 = secondThumb;
-//       const thumb_3 = thirdThumb;
-//       const thumb_4 = fourthThumb;
-//       const thumb_5 = fifthThumb;
-//       const thumbnail = `${thumb_id},${thumb_1},${thumb_2},${thumb_3},${thumb_4},${thumb_5}\n`;
-//       if (i === 0) {
-//         writer.write(thumbnail, encoding, callback);
-//       } else {
-// // see if we should continue, or wait
-// // don't pass the callback, because we're not done yet.
-//         ok = writer.write(thumbnail, encoding);
-//       }
-//     } while (i > 0 && ok);
-//     if (i > 0) {
-// // had to stop early!
-// // write some more once it drains
-//       writer.once('drain', write);
-//     }
-//   };
-// write();
-// };
-//
-// writeOneMillionThumbnails(writeThumbnails, 'utf-8', () => {
-//   writeThumbnails.end();
-// });
+const writeThumbnails = fs.createWriteStream('test.csv');
+writeThumbnails.write('thumb_id,thumb_1,thumb_2,thumb_3,thumb_4,thumb_5\n', 'utf-8');
+
+function writeOneMillionThumbnails(writer, encoding, callback) {
+  let i = 10;
+  let thumb_id = 0;
+  function write() {
+    let ok = true;
+    do {
+      i -= 1;
+      thumb_id += 1;
+      const thumb_1 = firstThumb;
+      const thumb_2 = secondThumb;
+      const thumb_3 = thirdThumb;
+      const thumb_4 = fourthThumb;
+      const thumb_5 = fifthThumb;
+      const thumbnail = `${thumb_id},${thumb_1},${thumb_2},${thumb_3},${thumb_4},${thumb_5}\n`;
+      if (i === 0) {
+        writer.write(thumbnail, encoding, callback);
+      } else {
+// see if we should continue, or wait
+// don't pass the callback, because we're not done yet.
+        ok = writer.write(thumbnail, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+// had to stop early!
+// write some more once it drains
+      writer.once('drain', write);
+    }
+  };
+write();
+};
+
+writeOneMillionThumbnails(writeThumbnails, 'utf-8', () => {
+  writeThumbnails.end();
+});
