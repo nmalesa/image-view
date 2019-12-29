@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 const _ = require('lodash');
+const fs = require('fs');
 
 mongoose.connect('mongodb://localhost/images', {
   useNewUrlParser: true,
@@ -36,29 +37,37 @@ async function createImage() {
 
   const result = await image.save();
 
-  console.log(result);
+  // console.log(result);
+  return result;
 };
 
-createImage();
+const testJSON = (helper) => {
+  // const image = {
+  //   name: faker.commerce.productName(),
+  //   primaryImage: faker.image.image(),
+  //   videoEmbed: _.random(1, 10) <= 5 ? `https://www.youtube.com/watch?v=${faker.random.alphaNumeric(11)}` : null,
+  //   description: faker.company.catchPhrase(),
+  //   thumbnails: ['null', 'null', 'null', 'null', 'null']
+  // };
+  //
+  // image.thumbnails[0] = _.random(1, 10) <= 5 ? faker.image.image() : null;
+  // image.thumbnails[1] = image.thumbnails[0] !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null;
+  // image.thumbnails[2] = image.thumbnails[1] !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null;
+  // image.thumbnails[3] = image.thumbnails[2] !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null;
+  // image.thumbnails[4] = image.thumbnails[3] !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null;
 
-//
-// async function createImage() {
-//   const image = new Image({
-//     name: faker.commerce.productName(),
-//     primary_image: faker.image.image(),
-//     video_embed: _.random(1, 10) <= 5 ? `https://www.youtube.com/watch?v=${faker.random.alphaNumeric(11)}` : null,
-//     description: faker.company.catchPhrase(),
-//     thumbnails: [
-//       _.random(1, 10) <= 5 ? faker.image.image() : null,
-//       this.thumbnails[0] !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null,
-//       this.thumbnails[1] !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null,
-//       this.thumbnails[2] !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null,
-//       this.thumbnails[3] !== null ? (_.random(1, 10) <= 5 ? faker.image.image() : null) : null
-//     ]
-//   });
-//
-//   const result = await image.save();
-//   console.log(result);
-// };
-//
-// createImage();
+
+  let count = 10;
+
+  while (count > 0) {
+    let nameTest = faker.commerce.productName();
+    let primaryImageTest = faker.image.image();
+
+    fs.appendFile('test.json', JSON.stringify({name: nameTest, primaryImage: primaryImageTest}) + ',' + '\n', err => {
+      if (err) throw err;
+    });
+    count--;
+  }
+};
+
+testJSON(createImage);
