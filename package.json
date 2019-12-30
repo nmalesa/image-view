@@ -7,6 +7,7 @@
     "client": "webpack -d --watch",
     "build": "webpack --mode production",
     "start": "nodemon ./server/server.js",
+    "mongoose": "nodemon ./mongoose/db.js",
     "test": "nodemon csvGenerator.js"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "faker": "^4.1.0",
     "lodash": "^4.17.15",
     "mariadb": "^2.1.4",
+    "mongoose": "^5.8.3",
     "node-gyp": "^5.0.7",
     "nodejs": "0.0.0",
     "react": "^16.12.0",
