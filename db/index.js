@@ -1,7 +1,7 @@
 const mariadb = require('mariadb');
 const faker = require('faker');
 const _ = require('lodash');
-require('dotenv').config();
+require('dotenv').config();  // Recommended on MariaDB docs
 
 const pool = mariadb.createPool({
   host: process.env.DB_HOST,
@@ -16,7 +16,7 @@ async function retrieveImage(id) {
   let connection;
   try {
     connection = await pool.getConnection();
-    let getRequest = await connection.query(`SELECT * FROM products WHERE id=?`, [id]);
+    let getRequest = await connection.query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?', [id]);
     return getRequest;
   } catch (error) {
     throw error;
@@ -82,7 +82,7 @@ async function deleteImage(id) {
   }
 };
 
-
+// EXAMPLE SET-UP FOR MARIADB NODE.JS DRIVER
 // async function asyncFunction() {
 //   let conn;
 //   try {

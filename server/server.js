@@ -10,12 +10,14 @@ app.use(express.urlencoded({extended: true}));
 
 // CRUD OPERATIONS - GET
 app.get('/products/:id', async (req, res) => {
+  console.time();
   try {
     let retrievedImage = await retrieveImage(req.params.id);
     res.send(retrievedImage);
   } catch (error) {
     res.send(error);
   }
+  console.timeEnd();
 });
 
 // CRUD OPERATIONS - POST

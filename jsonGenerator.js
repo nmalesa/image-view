@@ -33,7 +33,7 @@ const writeImages = fs.createWriteStream('images_10.json');
 // writeImages.write('id,name,primary_image,video_embed,description,thumbnailTest\n', 'utf-8');
 
 function writeOneMillionImages(writer, encoding, callback) {
-  let i = 1000000;
+  let i = 999;
   function write() {
     let ok = true;
     do {
