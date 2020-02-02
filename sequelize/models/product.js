@@ -1,21 +1,19 @@
-const Product = sequelize.define('product', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  primaryImage: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  videoEmbed: {
-    type: Sequelize.STRING
-  },
-  description: {
-    type: Sequelize.STRING
-  }
-});
+module.exports = (sequelize, type) => {
+  return sequelize.define('product', {
+    id: {
+      type: type.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: {
+      type: type.STRING,
+      allowNull: false
+    },
+    primaryImage: {
+      type: type.STRING,
+      allowNull: false
+    },
+    videoEmbed: type.STRING,
+    description: type.STRING
+  });
+};
