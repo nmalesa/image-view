@@ -1,12 +1,11 @@
 const express = require('express');
-const cors = require('cors');
-const app = express();
-const port = process.env.PORT || 3010;
 const {pool, retrieveImage, addImage, addThumbnails, modifyImage, deleteImage} = require('../db/index.js');
 
-app.use(cors());
+const app = express();
+const port = process.env.PORT || 3010;
+
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // CRUD OPERATIONS - GET
 app.get('/products/:id', async (req, res) => {
