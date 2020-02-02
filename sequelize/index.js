@@ -1,5 +1,5 @@
 const express = require('express');
-const { Product, Thumbnail } = require('./sequelize.js');
+const { Product, Thumbnail } = require('./db.js');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,7 +20,7 @@ app.get('/products/:id', (req, res) => {
       required: true
     }]
   });
-  return query.then(product => res.send(product);  
+  return query.then(product => res.send(product);
 });
 
 app.listen(port, console.log(`Listening on port ${port}...`));

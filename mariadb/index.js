@@ -1,5 +1,5 @@
 const express = require('express');
-const {pool, retrieveImage, addImage, addThumbnails, modifyImage, deleteImage} = require('../db/index.js');
+const {pool, retrieveImage, addImage, addThumbnails, modifyImage, deleteImage} = require('./db.js');
 
 const app = express();
 const port = process.env.PORT || 3010;
