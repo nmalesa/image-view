@@ -7,6 +7,17 @@ require('dotenv').config();
 const sequelize = new Sequelize('imageViews', process.env.DB_user, process.env.DB_pass, {
   host: process.env.DB_HOST,
   dialect: 'mariadb',
+  dialectOptions: {  // For reading date/time from database
+    useUTC: false,
+    dateStrings: true,
+    typeCast: function (field, text) {
+      if (field.type === 'DATETIME') {
+        return field.string();
+      }
+      return next();
+    }
+  },
+  timezone: 'America/Chicago', // For writing date/time to database
   pool: {
     max: 5,
     min: 0,
