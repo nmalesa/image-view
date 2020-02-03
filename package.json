@@ -4,11 +4,8 @@
   "description": "Image View Service",
   "main": "webpack.config.js",
   "scripts": {
-    "client": "webpack -d --watch",
-    "build": "webpack --mode production",
     "start": "nodemon ./server/server.js",
-    "mongoose": "nodemon ./mongoose/db.js",
-    "test": "nodemon csvGenerator.js"
+    "mongoose": "nodemon ./mongoose/db.js"
   },
   "repository": {
     "type": "git",

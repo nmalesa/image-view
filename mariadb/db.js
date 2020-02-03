@@ -1,7 +1,7 @@
 const mariadb = require('mariadb');
 const faker = require('faker');
 const _ = require('lodash');
-require('dotenv').config();  // Recommended on MariaDB docs
+require('dotenv').config({ path: '../.env' });  // Recommended on MariaDB docs
 
 const pool = mariadb.createPool({
   host: process.env.DB_HOST,
