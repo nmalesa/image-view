@@ -1,18 +1,15 @@
 const { MongoClient } = require('mongodb');
 
-async function main() {
-  const uri = 'mongodb://localhost/images';
+const url = 'mongodb://localhost:27017';
 
-  const client = new MongoClient(uri, { useUnifiedTopology: true });
+const dbName = 'images';
 
-  try {
-    await client.connect();
-    console.log('Connected to MongoDB...')
-  } catch(err) {
-    console.error('Could not connect to MongoDB:', err);
-  } finally {
-    await client.close();
-  }
-};
+let db;
 
-main().catch(console.error);
+MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
+  if (err) return console.log(err);
+
+  db = client.db(dbName);
+  console.log(`Connected to MongoDB: ${url}`);
+  console.log(`Database: ${dbName}`);
+});

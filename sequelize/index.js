@@ -20,7 +20,7 @@ app.get('/products/:id', (req, res) => {
       required: true
     }]
   });
-  return query.then(product => res.send(product);
+  return query.then(product => res.send(product));
 });
 
 app.listen(port, console.log(`Listening on port ${port}...`));

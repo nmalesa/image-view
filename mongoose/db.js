@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const faker = require('faker');
 const _ = require('lodash');
 
-mongoose.connect('mongodb://localhost/images', {
+mongoose.connect('mongodb://localhost:27017/images', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -39,4 +39,21 @@ async function createImage() {
   console.log(result);
 };
 
+async function getImage(id) {
+  const image = await Image.findById(id);
+
+  console.log(image);
+};
+
+async function getImageByName() {
+  const image = await Image
+    .find({ name: 'Ergonomic Wooden Bacon' })
+
+  console.log(image);
+}
+
 // createImage();
+
+// getImage('5e38b27e5887660933a1e011
+
+getImageByName();

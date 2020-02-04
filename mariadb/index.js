@@ -1,11 +1,14 @@
 const express = require('express');
 const {pool, retrieveImage } = require('./db.js');
+const { Benchmark } = require('benchmark');
 
 const app = express();
 const port = process.env.PORT || 3010;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.listen(port, console.log(`Listening on port ${port}...`));
 
 // CRUD OPERATIONS - GET
 app.get('/products/:id', async (req, res) => {
@@ -18,6 +21,28 @@ app.get('/products/:id', async (req, res) => {
   }
   // console.timeEnd();
 });
+
+// BENCHMARK TESTING 
+const suite = new Benchmark.Suite();
+
+suite.add('getRequest', function() {
+  app.get('/products/:id', async (req, res) => {
+    // console.time();
+    try {
+      let retrievedImage = await retrieveImage(req.params.id);
+      res.send(retrievedImage);
+    } catch (error) {
+      res.send(error);
+    }
+    // console.timeEnd();
+  });
+});
+
+suite.on('cycle', function(event) {
+  console.log(String(event.target));
+});
+
+suite.run();
 
 // CRUD OPERATIONS - POST
 // app.post('/products', async (req, res) => {
@@ -57,5 +82,3 @@ app.get('/products/:id', async (req, res) => {
 //     res.send(error);
 //   }
 // });
-
-app.listen(port, console.log(`Listening on port ${port}...`));
