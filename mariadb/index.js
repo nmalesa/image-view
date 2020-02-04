@@ -11,18 +11,18 @@ app.use(express.urlencoded({ extended: true }));
 app.listen(port, console.log(`Listening on port ${port}...`));
 
 // CRUD OPERATIONS - GET
-app.get('/products/:id', async (req, res) => {
-  // console.time();
-  try {
-    let retrievedImage = await retrieveImage(req.params.id);
-    res.send(retrievedImage);
-  } catch (error) {
-    res.send(error);
-  }
-  // console.timeEnd();
-});
+// app.get('/products/:id', async (req, res) => {
+//   // console.time();
+//   try {
+//     let retrievedImage = await retrieveImage(req.params.id);
+//     res.send(retrievedImage);
+//   } catch (error) {
+//     res.send(error);
+//   }
+//   // console.timeEnd();
+// });
 
-// BENCHMARK TESTING 
+// BENCHMARK TESTING
 const suite = new Benchmark.Suite();
 
 suite.add('getRequest', function() {
