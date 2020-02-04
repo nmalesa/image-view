@@ -9,29 +9,22 @@ const client = new MongoClient(url, { useUnifiedTopology: true });
 
 client.connect(function(err) {
   assert.equal(null, err);
-  console.log('Connected successfully to server');
+  console.log('Connected successfully to server...');
 
   const db = client.db(dbName);
 
-  client.close();
+  findDocuments(db, function() {
+    client.close();
+  });
 });
 
+const findDocuments = function(db, callback) {
+  const collection = db.collection('products');
 
-
-// const { MongoClient } = require('mongodb');
-//
-// const url = 'mongodb://localhost:27017';
-//
-// const dbName = 'images';
-//
-// let db;
-//
-// MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
-//   if (err) return console.log(err);
-//
-//   db = client.db(dbName);
-//   console.log(`Connected to MongoDB: ${url}`);
-//   console.log(`Database: ${dbName}`);
-//
-//   db.products.find({ name: 'Ergonomic Wooden Bacon' });
-// });
+  collection.find({ name: 'Ergonomic Wooden Bacon' }).toArray(function(err, docs) {
+    assert.equal(err, null);
+    console.log('Found the following records:');
+    console.log(docs);
+    callback(docs);
+  });
+}
