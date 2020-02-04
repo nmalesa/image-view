@@ -21,7 +21,7 @@ client.connect(function(err) {
 const findDocuments = function(db, callback) {
   const collection = db.collection('products');
 
-  collection.find({ name: 'Ergonomic Wooden Bacon' }).toArray(function(err, docs) {
+  collection.find({ name: 'Handcrafted Frozen Soap' }).toArray(function(err, docs) {
     assert.equal(err, null);
     console.log('Found the following records:');
     console.log(docs);

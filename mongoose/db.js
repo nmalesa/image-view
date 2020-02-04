@@ -9,6 +9,17 @@ mongoose.connect('mongodb://localhost:27017/images', {
   .then(() => console.log('Connected to MongoDB...'))
   .catch(err => console.log('Could not connect to MongoDB:', err));
 
+const connection = mongoose.connection;
+
+connection.on('error', console.error.bind(console, 'Connection error: '));
+connection.once('open', function() {
+  connection.db.collection('products', function(err, collection) {
+    collection.find({ name: 'Ergonomic Wooden Bacon' }).toArray(function(err, data) {
+      console.log(data);
+    });
+  });
+});
+
 const imageSchema = new mongoose.Schema({
   name: String,
   primaryImage: String,
@@ -39,21 +50,21 @@ async function createImage() {
   console.log(result);
 };
 
-async function getImage(id) {
-  const image = await Image.findById(id);
-
-  console.log(image);
-};
-
-async function getImageByName() {
-  const image = await Image
-    .find({ name: 'Ergonomic Wooden Bacon' })
-
-  console.log(image);
-}
+// async function getImage(id) {
+//   const image = await Image.findById(id);
+//
+//   console.log(image);
+// };
+//
+// async function getImageByName() {
+//   const image = await Image
+//     .find({ name: 'Ergonomic Wooden Bacon' })
+//
+//   console.log(image);
+// }
 
 // createImage();
 
-// getImage('5e38b27e5887660933a1e011
+// getImage('5e38b27e5887660933a1e011');
 
-getImageByName();
+// getImageByName();
