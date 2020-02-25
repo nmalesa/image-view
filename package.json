@@ -11,12 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/mfuechec/Mark_Image-View-Service.git"
   },
-  "authors": "Mark Fuechec and Natalia Malesa",
+  "authors": "Natalia Malesa",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Gabe-Lee/Carousels-Service/issues"
-  },
-  "homepage": "https://github.com/Gabe-Lee/Carousels-Service#readme",
   "dependencies": {
     "benchmark": "^2.1.4",
     "cors": "^2.8.5",
@@ -31,6 +27,7 @@
     "sequelize": "^5.21.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.1"
+    "nodemon": "^2.0.1",
+    "sequelize-cli": "^5.5.1"
   }
 }

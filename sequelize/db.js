@@ -31,7 +31,7 @@ Thumbnail.belongsTo(Product);
 
 sequelize.sync({ force: true })
   .then(() => {
-    console.log('Database and tables created!');
+    console.log('Tables created in designated database.');
   })
   .catch(() => {
     console.error();
