@@ -28,10 +28,10 @@ const Product = ProductModel(sequelize, Sequelize);
 const Thumbnail = ThumbnailModel(sequelize, Sequelize);
 
 
-// Relationship
+// Establish association
 Thumbnail.belongsTo(Product);
 
-// Create Tables:
+// Create tables:
 // sequelize.sync({ force: true })
 //   .then(() => {
 //     console.log('Tables created in designated database.');
@@ -40,11 +40,10 @@ Thumbnail.belongsTo(Product);
 //     console.error();
 //   })
 
-// SQL GET query:
+// MariaDB retrieve (CRUD):
 // 'SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?'
 
 const query = (req, res) => {
-
   Product.findAll({
     where: {
       id: req.params.id,
@@ -56,7 +55,6 @@ const query = (req, res) => {
   })
   .then(data => res.send(data))
   .catch(err => res.send(err))
-
 };
 
 module.exports = { query };
