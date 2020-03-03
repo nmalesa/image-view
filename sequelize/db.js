@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const ProductModel = require('./models/product.js');
 const ThumbnailModel = require('./models/thumbnail.js');
+const { Benchmark } = require('benchmark');
 require('dotenv').config();
 
 // Set up database connection(s)
@@ -42,19 +43,28 @@ Thumbnail.belongsTo(Product);
 
 // MariaDB retrieve (CRUD):
 // 'SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?'
-
 const query = (req, res) => {
-  Product.findAll({
-    where: {
-      id: req.params.id,
-      include: [{
-        model: Thumbnail,
-        required: true
-      }]
-    }
-  })
-  .then(data => res.send(data))
-  .catch(err => res.send(err))
+  const suite = new Benchmark.Suite();
+
+  suite.add('retrieve', () => {
+    Product.findAll({
+      where: {
+        id: req.params.id,
+        include: [{
+          model: Thumbnail,
+          required: true
+        }]
+      }
+    })
+    .then(data => res.send(data))
+    .catch(err => res.send(err))
+  });
+
+  suite.on('cycle', event => {
+    console.log(String(event.target));
+  });
+
+  suite.run();
 };
 
 module.exports = { query };
