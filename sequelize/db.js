@@ -4,8 +4,8 @@ const ThumbnailModel = require('./models/thumbnail.js');
 require('dotenv').config();
 
 // Set up database connection(s)
-const sequelize = new Sequelize('imageViews', process.env.DB_user, process.env.DB_pass, {
-  host: process.env.DB_HOST,
+const sequelize = new Sequelize('imageViews', 'root', 'password', {
+  host: 'localhost',
   dialect: 'mariadb',
   pool: {
     max: 5,
@@ -27,14 +27,36 @@ sequelize
 const Product = ProductModel(sequelize, Sequelize);
 const Thumbnail = ThumbnailModel(sequelize, Sequelize);
 
+
+// Relationship
 Thumbnail.belongsTo(Product);
 
-sequelize.sync({ force: true })
-  .then(() => {
-    console.log('Tables created in designated database.');
-  })
-  .catch(() => {
-    console.error();
-  })
+// Create Tables
+// sequelize.sync({ force: true })
+//   .then(() => {
+//     console.log('Tables created in designated database.');
+//   })
+//   .catch(() => {
+//     console.error();
+//   })
 
-module.exports = { Product, Thumbnail };
+// SQL GET query:
+// 'SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?'
+
+const query = (req, res) => {
+
+  Product.findAll({
+    where: {
+      id: req.params.id,
+      include: [{
+        model: Thumbnail,
+        required: true
+      }]
+    }
+  })
+  .then(data => res.send(data))
+  .catch(err => res.send(err))
+
+};
+
+module.exports = { query };
