@@ -31,7 +31,7 @@ const Thumbnail = ThumbnailModel(sequelize, Sequelize);
 // Relationship
 Thumbnail.belongsTo(Product);
 
-// Create Tables
+// Create Tables:
 // sequelize.sync({ force: true })
 //   .then(() => {
 //     console.log('Tables created in designated database.');
