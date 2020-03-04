@@ -41,7 +41,7 @@ Thumbnail.belongsTo(Product);
 //     console.error();
 //   })
 
-// MariaDB retrieve (CRUD):
+// SQL retrieve (CRUD):
 // 'SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?'
 const query = (req, res) => {
   const suite = new Benchmark.Suite();

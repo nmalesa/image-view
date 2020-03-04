@@ -14,6 +14,11 @@ module.exports = (sequelize, type) => {
       allowNull: false
     },
     videoEmbed: type.STRING,
-    description: type.STRING
+    description: type.STRING,
+    createdAt: {
+      type: type.DATE,
+      allowNull: false
+    },
+    updatedAt: type.DATE
   });
 };
