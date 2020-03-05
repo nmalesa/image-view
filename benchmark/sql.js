@@ -17,25 +17,60 @@ const sequelize = new Sequelize('imageViews', 'root', 'password', {
   }
 });
 
-sequelize
-  .authenticate()
+// Promise.all([
+//   sequelize.authenticate()
+//     .then(() => {
+//       console.log('Connection has been established successfully.');
+//     })
+//     .catch(err => {
+//       console.error('Unable to connect to the database:', err);
+//     })
+// ]).then(() => {
+//   const Product = ProductModel(sequelize, Sequelize);
+//   const Thumbnail = ThumbnailModel(sequelize, Sequelize);
+//
+//   Thumbnail.belongsTo(Product);
+
+//   suite.add('Sequelize', () => {
+//     Product.findAll({
+//       where: {
+//         id: 8629947
+//       }
+//     })
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err))
+//   })
+//   .on('cycle', event => {
+//     console.log(String(event.target));
+//   })
+//   .run({ async: true })
+// });
+
+sequelize.authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
   })
   .catch(err => {
     console.error('Unable to connect to the database:', err);
-});
+  })
 
-const Product = ProductModel(sequelize, Sequelize);
-const Thumbnail = ThumbnailModel(sequelize, Sequelize);
+  const Product = ProductModel(sequelize, Sequelize);
+  const Thumbnail = ThumbnailModel(sequelize, Sequelize);
 
-Thumbnail.belongsTo(Product);
+  Product.hasMany(Thumbnail);
+  Thumbnail.belongsTo(Product);
+
+
 
 const query = () => {
   Product.findAll({
     where: {
       id: 8629947
-    }
+    },
+    include: [{
+      model: Thumbnail,
+      required: true
+    }]
   })
   .then(data => console.log(data))
   .catch(err => console.log(err))

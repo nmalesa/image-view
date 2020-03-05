@@ -29,7 +29,8 @@ const Product = ProductModel(sequelize, Sequelize);
 const Thumbnail = ThumbnailModel(sequelize, Sequelize);
 
 
-// Establish association
+// Establish associations
+Product.hasMany(Thumbnail);
 Thumbnail.belongsTo(Product);
 
 // Create tables:
@@ -50,12 +51,12 @@ const query = (req, res) => {
   suite.add('retrieve', () => {
     Product.findAll({
       where: {
-        id: req.params.id,
-        include: [{
-          model: 'Thumbnail',
-          required: true
-        }]
-      }
+        id: req.params.id
+      },
+      include: [{
+        model: Thumbnail,
+        required: true
+      }]
     })
     .then(data => res.send(data))
     .catch(err => res.send(err))
