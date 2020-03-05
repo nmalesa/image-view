@@ -32,7 +32,10 @@ Promise.all([
   suite.add('Mongoose', {
     defer: true,
     fn: def => {
-      productModel.findOne({ name:'Licensed Rubber Gloves', primaryImage: 'http://lorempixel.com/640/480/city', videoEmbed: 'https://www.youtube.com/watch?v=f3tth4lps5d', description: 'Expanded local solution', thumbnails:['http://lorempixel.com/640/480/cats', 'http://lorempixel.com/640/480/sports', 'http://lorempixel.com/640/480/people', null, null] }).exec().then(e => {
+      // productModel.findOne({ name:'Licensed Rubber Gloves', primaryImage: 'http://lorempixel.com/640/480/city', videoEmbed: 'https://www.youtube.com/watch?v=f3tth4lps5d', description: 'Expanded local solution', thumbnails:['http://lorempixel.com/640/480/cats', 'http://lorempixel.com/640/480/sports', 'http://lorempixel.com/640/480/people', null, null] }).exec().then(e => {
+      //   def.resolve();
+      // });
+      productModel.findOne({ _id: '5e0980925349f02e58d1c27b' }).exec().then(e => {
         def.resolve();
       });
     }
@@ -40,7 +43,10 @@ Promise.all([
   .add('MongoDB', {
     defer: true,
     fn: def => {
-      nativeCollection.findOne({ name:'Licensed Rubber Gloves', primaryImage: 'http://lorempixel.com/640/480/city', videoEmbed: 'https://www.youtube.com/watch?v=f3tth4lps5d', description: 'Expanded local solution', thumbnails:['http://lorempixel.com/640/480/cats', 'http://lorempixel.com/640/480/sports', 'http://lorempixel.com/640/480/people', null, null] }, null, (e, r) => {
+      // nativeCollection.findOne({ name:'Licensed Rubber Gloves', primaryImage: 'http://lorempixel.com/640/480/city', videoEmbed: 'https://www.youtube.com/watch?v=f3tth4lps5d', description: 'Expanded local solution', thumbnails:['http://lorempixel.com/640/480/cats', 'http://lorempixel.com/640/480/sports', 'http://lorempixel.com/640/480/people', null, null] }, null, (e, r) => {
+      //   def.resolve();
+      // })
+      nativeCollection.findOne({ _id: '5e0980925349f02e58d1c27b' }, null, (e, r) => {
         def.resolve();
       })
     }

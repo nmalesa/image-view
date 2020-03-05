@@ -22,7 +22,7 @@ const client = new MongoClient(url, { useUnifiedTopology: true });
 const findDocument = function(db, callback) {
   const collection = db.collection('products');
 
-  collection.findOne({ name:'Licensed Rubber Gloves', primaryImage: 'http://lorempixel.com/640/480/city', videoEmbed: 'https://www.youtube.com/watch?v=f3tth4lps5d', description: 'Expanded local solution', thumbnails:['http://lorempixel.com/640/480/cats', 'http://lorempixel.com/640/480/sports', 'http://lorempixel.com/640/480/people', null, null] }, (err, docs) => {
+  collection.findOne({ _id: '5e0980925349f02e58d1c27b' }, (err, docs) => {
     assert.equal(err, null);
     console.log('Found the following record:');
     console.log(docs);

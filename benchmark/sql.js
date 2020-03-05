@@ -54,13 +54,11 @@ sequelize.authenticate()
     console.error('Unable to connect to the database:', err);
   })
 
-  const Product = ProductModel(sequelize, Sequelize);
-  const Thumbnail = ThumbnailModel(sequelize, Sequelize);
+const Product = ProductModel(sequelize, Sequelize);
+const Thumbnail = ThumbnailModel(sequelize, Sequelize);
 
-  Product.hasMany(Thumbnail);
-  Thumbnail.belongsTo(Product);
-
-
+Product.hasMany(Thumbnail);
+Thumbnail.belongsTo(Product);
 
 const query = () => {
   Product.findAll({
