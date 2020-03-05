@@ -65,7 +65,7 @@ const query = (req, res) => {
     console.log(String(event.target));
   })
   // Run async
-  .run({ 'async': true });
+  .run({ async: true });
 };
 
 module.exports = { query };

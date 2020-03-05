@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
+const { Benchmark } = require('benchmark');
 
 const url = 'mongodb://localhost:27017';
 
@@ -7,22 +8,19 @@ const dbName = 'images';
 
 const client = new MongoClient(url, { useUnifiedTopology: true });
 
-client.connect(function(err) {
-  assert.equal(null, err);
-  console.log('Connected successfully to server...');
+// const indexCollection = function(db, callback) {
+//   db.collection('products').createIndex(
+//     { name: 1 },
+//     { unique: true },
+//     null,
+//     function(err, results) {
+//       console.log(results);
+//       callback();
+//     }
+//   );
+// };
 
-  const db = client.db(dbName);
-
-  // findDocuments(db, function() {
-  //   client.close();
-  // });
-
-  indexCollection(db, function() {
-    findDocuments(db, function() {
-      client.close();
-    });
-  });
-});
+const suite = new Benchmark.Suite();
 
 const findDocuments = function(db, callback) {
   const collection = db.collection('products');
@@ -33,15 +31,15 @@ const findDocuments = function(db, callback) {
     console.log(docs);
     callback(docs);
   });
-}
-
-const indexCollection = function(db, callback) {
-  db.collection('products').createIndex(
-    { name: 1 },
-    null,
-    function(err, results) {
-      console.log(results);
-      callback();
-    }
-  );
 };
+
+client.connect(function(err) {
+  assert.equal(null, err);
+  console.log('Connected successfully to server...');
+
+  const db = client.db(dbName);
+
+  findDocuments(db, function() {
+    client.close();
+  });
+});

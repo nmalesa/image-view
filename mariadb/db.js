@@ -11,22 +11,22 @@ const pool = mariadb.createPool({
 });
 
 // Attempt to promisify query to better work with Benchmark library
-pool.getConnection()
-  .then(conn => {
-    conn.query(id)
-      .then(() => {
-        return conn.query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?', [id]);
-      })
-      .then(res => {
-        conn.release();
-      })
-      .catch(err => {
-        conn.release();
-      })
-  })
-  .catch(err => {
-    //not connected
-  });
+// pool.getConnection()
+//   .then(conn => {
+//     conn.query(id)
+//       .then(() => {
+//         return conn.query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?', [id]);
+//       })
+//       .then(res => {
+//         conn.release();
+//       })
+//       .catch(err => {
+//         conn.release();
+//       })
+//   })
+//   .catch(err => {
+//     //not connected
+//   });
 
 
 
@@ -69,17 +69,17 @@ pool.getConnection()
 // }
 
 // WORKING ASYNC/AWAIT QUERY
-// async function retrieveImage(id) {
-//   try {
-//     connection = await pool.getConnection();
-//     let getRequest = await connection.query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?', [id]);
-//     return getRequest;
-//   } catch (error) {
-//     throw error;
-//   } finally {
-//     if (connection) connection.release();
-//   }
-// };
+async function retrieveImage(id) {
+  try {
+    connection = await pool.getConnection();
+    let getRequest = await connection.query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?', [id]);
+    return getRequest;
+  } catch (error) {
+    throw error;
+  } finally {
+    if (connection) connection.release();
+  }
+};
 
 
 module.exports = { pool, retrieveImage };
