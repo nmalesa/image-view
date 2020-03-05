@@ -13,8 +13,14 @@ client.connect(function(err) {
 
   const db = client.db(dbName);
 
-  findDocuments(db, function() {
-    client.close();
+  // findDocuments(db, function() {
+  //   client.close();
+  // });
+
+  indexCollection(db, function() {
+    findDocuments(db, function() {
+      client.close();
+    });
   });
 });
 
@@ -28,3 +34,14 @@ const findDocuments = function(db, callback) {
     callback(docs);
   });
 }
+
+const indexCollection = function(db, callback) {
+  db.collection('products').createIndex(
+    { name: 1 },
+    null,
+    function(err, results) {
+      console.log(results);
+      callback();
+    }
+  );
+};
