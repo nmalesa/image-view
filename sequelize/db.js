@@ -41,7 +41,7 @@ Thumbnail.belongsTo(Product);
 //     console.error();
 //   })
 
-// SQL retrieve (CRUD):
+// MariaDB dialect:  Retrieve (CRUD):
 // 'SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = ?'
 const query = (req, res) => {
   const suite = new Benchmark.Suite();
@@ -58,13 +58,11 @@ const query = (req, res) => {
     })
     .then(data => res.send(data))
     .catch(err => res.send(err))
-  });
-
-  suite.on('cycle', event => {
+  })
+  .on('cycle', event => {
     console.log(String(event.target));
-  });
-
-  suite.run();
+  })
+  .run({ 'async': true });
 };
 
 module.exports = { query };
