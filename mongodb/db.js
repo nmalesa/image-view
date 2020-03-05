@@ -1,6 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
-const { Benchmark } = require('benchmark');
 
 const url = 'mongodb://localhost:27017';
 
@@ -20,14 +19,12 @@ const client = new MongoClient(url, { useUnifiedTopology: true });
 //   );
 // };
 
-const suite = new Benchmark.Suite();
-
-const findDocuments = function(db, callback) {
+const findDocument = function(db, callback) {
   const collection = db.collection('products');
 
-  collection.find({ name: 'Handcrafted Frozen Soap' }).toArray(function(err, docs) {
+  collection.findOne({ name:'Licensed Rubber Gloves', primaryImage: 'http://lorempixel.com/640/480/city', videoEmbed: 'https://www.youtube.com/watch?v=f3tth4lps5d', description: 'Expanded local solution', thumbnails:['http://lorempixel.com/640/480/cats', 'http://lorempixel.com/640/480/sports', 'http://lorempixel.com/640/480/people', null, null] }, (err, docs) => {
     assert.equal(err, null);
-    console.log('Found the following records:');
+    console.log('Found the following record:');
     console.log(docs);
     callback(docs);
   });
@@ -39,7 +36,7 @@ client.connect(function(err) {
 
   const db = client.db(dbName);
 
-  findDocuments(db, function() {
+  findDocument(db, function() {
     client.close();
   });
 });
