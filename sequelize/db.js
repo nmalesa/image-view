@@ -46,12 +46,13 @@ Thumbnail.belongsTo(Product);
 const query = (req, res) => {
   const suite = new Benchmark.Suite();
 
+  // Add test
   suite.add('retrieve', () => {
     Product.findAll({
       where: {
         id: req.params.id,
         include: [{
-          model: Thumbnail,
+          model: 'Thumbnail',
           required: true
         }]
       }
@@ -59,9 +60,11 @@ const query = (req, res) => {
     .then(data => res.send(data))
     .catch(err => res.send(err))
   })
+  // Add listener
   .on('cycle', event => {
     console.log(String(event.target));
   })
+  // Run async
   .run({ 'async': true });
 };
 
