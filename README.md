@@ -18,17 +18,19 @@ description, embedded video, thumbnails).  The MongoDB collection was indexed
 to improve performance.
 
 ### Benchmarking Results
-Running the retrieval operation over a sample set of __70 runs__ generated the following
-results:
+Running the above retrieval operation over a sample set of __70 runs__ generated
+the following results:
 
 #### NoSQL
-Mongoose:  896 ops/sec ± 5.52%
-MongoDB:  1,794 ops/sec ± 5.18%
+__Mongoose__:  896 ops/sec ± 5.52%
+
+__MongoDB__:  1,794 ops/sec ± 5.18%
 
 ![alt text](https://raw.githubusercontent.com/nmalesa/image-view/master/benchmark/plotly/nosql.png "Bar Chart Displaying NoSQL Benchmarking Statistics")
 
 #### SQL
-Sequelize:  432 ops/sec ± 4.98%
-MariaDB:  3,290 ops/sec ± 3.36%
+__Sequelize__:  432 ops/sec ± 4.98%
+
+__MariaDB__:  3,290 ops/sec ± 3.36%
 
 ![alt text](https://raw.githubusercontent.com/nmalesa/image-view/master/benchmark/plotly/sql.png "Bar Chart Displaying SQL Benchmarking Statistics")
