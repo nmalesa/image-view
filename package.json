@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "description": "Image View Service",
   "main": "webpack.config.js",
-  "scripts": {
-    "start": "nodemon ./server/server.js",
-    "mongoose": "nodemon ./mongoose/db.js"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mfuechec/Mark_Image-View-Service.git"
+    "url": "git+https://github.com/nmalesa/image-view"
   },
   "authors": "Natalia Malesa",
   "license": "ISC",
@@ -24,6 +20,7 @@
     "mongodb": "^3.5.2",
     "mongoose": "^5.8.3",
     "nodejs": "0.0.0",
+    "plotly.js-dist": "^1.52.3",
     "sequelize": "^5.21.3"
   },
   "devDependencies": {
