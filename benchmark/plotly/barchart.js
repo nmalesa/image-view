@@ -1,31 +1,29 @@
-const nosql = {
+const trace1 = {
   x: ['NoSQL', 'SQL'],
-  y: [3, 6],
+  y: [896, 432],
   name: 'ORM',
   error_y: {
     type: 'data',
-    array: [1, 0.5],
+    array: [5.52, 4.98],
     visible: true
   },
   type: 'bar'
 };
 
-const sql = {
+const trace2 = {
   x: ['NoSQL', 'SQL'],
-  y: [4, 7],
+  y: [1794, 3290],
   name: 'Without ORM',
   error_y: {
     type: 'data',
-    array: [0.5, 2],
+    array: [5.18, 3.36],
     visible: true
   },
   type: 'bar'
 };
 
-const data = [nosql, sql];
+const data = [trace1, trace2];
 
 const layout = { barmode: 'group' };
-
-console.log('Hello world!');
 
 Plotly.newPlot('benchmark', data, layout);
