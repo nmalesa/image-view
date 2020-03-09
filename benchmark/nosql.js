@@ -31,17 +31,17 @@ Promise.all([
 
   suite.add('Mongoose', {
     defer: true,
-    fn: def => {
+    fn: deferred => {
       productModel.findOne({ _id: '5e0980925349f02e58d1c27b' }).exec().then(e => {
-        def.resolve();
+        deferred.resolve();
       });
     }
   })
   .add('MongoDB', {
     defer: true,
-    fn: def => {
+    fn: deferred => {
       nativeCollection.findOne({ _id: '5e0980925349f02e58d1c27b' }, null, (e, r) => {
-        def.resolve();
+        deferred.resolve();
       })
     }
   })
