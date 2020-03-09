@@ -30,7 +30,7 @@ const pool = mariadb.createPool({
 Promise.all([
   pool.getConnection(),
   sequelize.authenticate()
-]).then(() => {
+]).then(conn => {
 
   const Product = ProductModel(sequelize, Sequelize);
   const Thumbnail = ThumbnailModel(sequelize, Sequelize);
@@ -39,30 +39,30 @@ Promise.all([
   Thumbnail.belongsTo(Product);
 
   suite.add('Sequelize', {
-      defer: true,
-      fn: deferred => {
-        Product.findAll({
-          where: {
-            id: 8629947
-          },
-          include: [{
-            model: Thumbnail,
-            required: true
-          }]
-        }).then(e => {
-          deferred.resolve();
-        })
-      }
+    defer: true,
+    fn: deferred => {
+      Product.findAll({
+        where: {
+          id: 8629947
+        },
+        include: [{
+          model: Thumbnail,
+          required: true
+        }]
+      }).then(e => {
+        deferred.resolve();
       })
-  // .add('MariaDB', {
-  //   defer: true,
-  //   fn: deferred => {
-  //     return conn.query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = 8629947')
-  //     .then(e => {
-  //       deferred.resolve();
-  //     })
-  //   }
-  // })
+    }
+  })
+  .add('MariaDB', {
+    defer: true,
+    fn: deferred => {
+      conn[0].query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = 8629947')
+      .then(e => {
+        deferred.resolve();
+      })
+    }
+  })
   .on('cycle', event => {
     console.log(String(event.target));
   })
@@ -73,7 +73,7 @@ Promise.all([
 })
 
 
-
+// WORKING MARIADB RETRIEVAL QUERY
 // pool.getConnection()
 //   .then(conn => {
 //     return conn.query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = 8629947');
@@ -85,20 +85,7 @@ Promise.all([
 //     console.log(err);
 //   })
 
-// sequelize.authenticate()
-//   .then(() => {
-//     console.log('Connection has been established successfully.');
-//   })
-//   .catch(err => {
-//     console.error('Unable to connect to the database:', err);
-//   })
-//
-// const Product = ProductModel(sequelize, Sequelize);
-// const Thumbnail = ThumbnailModel(sequelize, Sequelize);
-//
-// Product.hasMany(Thumbnail);
-// Thumbnail.belongsTo(Product);
-//
+// WORKING SEQUELIZE RETRIEVAL QUERY
 // const query = () => {
 //   Product.findAll({
 //     where: {
