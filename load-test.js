@@ -1,3 +1,4 @@
+
 import http from 'k6/http';
 import { check, group, sleep, fail } from 'k6';
 
@@ -9,16 +10,12 @@ export let options = {
   }
 };
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:3000/products';
 
 export default () => {
-  let image = http.get(`${BASE_URL}/8629947`);
+  let image = http.get(`${BASE_URL}/8629947/`).json();
 
-  check(image, {
-    'status was 200': r => r.status == 200,
-    'transaction time OK': r => r.timings.duration < 200,
-    'retrieved image': obj => obj.length > 0
-  });
+  check(image, { 'retrieved image': (obj) => obj.length > 0 });
 
   sleep(1);
 };
