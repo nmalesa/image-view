@@ -2,10 +2,18 @@ const mariadb = require('mariadb');
 const { Benchmark } = require('benchmark');
 require('dotenv').config({ path: '../.env' });  // Recommended on MariaDB docs
 
+// const pool = mariadb.createPool({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   connectionLimit: 5,
+//   database: 'images'
+// });
+
 const pool = mariadb.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
   connectionLimit: 5,
   database: 'images'
 });
