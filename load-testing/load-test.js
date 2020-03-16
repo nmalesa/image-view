@@ -3,20 +3,20 @@ import { check, group, sleep, fail } from 'k6';
 
 export let options = {
   stages: [
-    { duration: "5m",  target: 60 }, // simulate ramp-up of traffic from 1 to 60 users over 5 minutes.
-    { duration: "10m", target: 60 }, // stay at 60 users for 10 minutes
-    { duration: "3m",  target: 100 }, // ramp-up to 100 users over 3 minutes (peak hour starts)
-    { duration: "2m",  target: 100 }, // stay at 100 users for short amount of time (peak hour)
-    { duration: "3m",  target: 60 }, // ramp-down to 60 users over 3 minutes (peak hour ends)
-    { duration: "10m", target: 60 }, // continue at 60 for additional 10 minutes
-    { duration: "5m",  target: 0 }  // ramp-down to 0 users
+    { duration: "5m",  target: 60 }, // Simulate ramp-up of traffic from 1 to 60 users over 5 minutes.
+    { duration: "10m", target: 60 }, // Stay at 60 users for 10 minutes
+    { duration: "3m",  target: 100 }, // Ramp-up to 100 users over 3 minutes (peak hour starts)
+    { duration: "2m",  target: 100 }, // Stay at 100 users for short amount of time (peak hour)
+    { duration: "3m",  target: 60 }, // Ramp-down to 60 users over 3 minutes (peak hour ends)
+    { duration: "10m", target: 60 }, // Continue at 60 for additional 10 minutes
+    { duration: "5m",  target: 0 }  // Ramp-down to 0 users
   ],
   thresholds: {
-    'http_req_duration': ['p(99)<1500'], // 99% of requests must complete below 1.5s
+    http_req_duration: ['p(99)<1500'],
   }
 };
 
-const BASE_URL = 'http://localhost:3000/products';
+const BASE_URL = 'http://localhost:3030/products';
 
 export default () => {
   let image = http.get(`${BASE_URL}/8629947/`).json();
