@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { check, group, sleep, fail } from 'k6';
+import { sleep } from 'k6';
 
 export let options = {
   stages: [
@@ -17,14 +17,6 @@ export let options = {
 };
 
 const BASE_URL = 'http://localhost:3030/products';
-
-// export default () => {
-//   let image = http.get(`${BASE_URL}/8629947/`).json();
-//
-//   check(image, { 'retrieved image': (obj) => obj.length > 0 });
-//
-//   sleep(1);
-// };
 
 export default () => {
   let responses = http.batch([
@@ -53,6 +45,6 @@ export default () => {
       { tags: { ctype: 'html', name: 'Generic Plastic Fish' } }
     ]
   ]);
-  
+
   sleep(1);
 };

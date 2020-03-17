@@ -1,5 +1,5 @@
 const express = require('express');
-const { pool, retrieveImage } = require('./db.js');
+const { pool, retrieveImage } = require('../db.js');
 
 const app = express();
 const port = process.env.PORT || 3030;
