@@ -18,10 +18,41 @@ export let options = {
 
 const BASE_URL = 'http://localhost:3030/products';
 
+// export default () => {
+//   let image = http.get(`${BASE_URL}/8629947/`).json();
+//
+//   check(image, { 'retrieved image': (obj) => obj.length > 0 });
+//
+//   sleep(1);
+// };
+
 export default () => {
-  let image = http.get(`${BASE_URL}/8629947/`).json();
-
-  check(image, { 'retrieved image': (obj) => obj.length > 0 });
-
+  let responses = http.batch([
+    [
+      'GET',
+      `${BASE_URL}/6384294/`,
+      null,
+      { tags: { ctype: 'html', name: 'Practical Steel Computer' } }
+    ],
+    [
+      'GET',
+      `${BASE_URL}/7049283/`,
+      null,
+      { tags: { ctype: 'html', name: 'Intelligent Plastic Bike' } }
+    ],
+    [
+      'GET',
+      `${BASE_URL}/8629947/`,
+      null,
+      { tags: { ctype: 'html', name: 'Gorgeous Concrete Sausages' } }
+    ],
+    [
+      'GET',
+      `${BASE_URL}/9858273`,
+      null,
+      { tags: { ctype: 'html', name: 'Generic Plastic Fish' } }
+    ]
+  ]);
+  
   sleep(1);
 };
