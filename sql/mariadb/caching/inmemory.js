@@ -29,7 +29,7 @@ let cacheMiddleware = duration => {
   }
 };
 
-app.get('/products/:id', async (req, res) => {
+app.get('/products/:id', cacheMiddleware(30), async (req, res) => {
   try {
     let retrievedImage = await retrieveImage(req.params.id);
     res.send(retrievedImage);
