@@ -27,7 +27,7 @@ let flatCacheMiddleware = (req, res, next) => {
   }
 };
 
-app.get('/products/:id', async (req, res) => {
+app.get('/products/:id', flatCacheMiddleware, async (req, res) => {
   try {
     let retrievedImage = await retrieveImage(req.params.id);
     res.send(retrievedImage);
