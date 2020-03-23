@@ -49,7 +49,7 @@ Promise.all([
           model: Thumbnail,
           required: true
         }]
-      }).then(e => {
+      }).then(err => {
         deferred.resolve();
       })
     }
@@ -58,7 +58,7 @@ Promise.all([
     defer: true,
     fn: deferred => {
       conn[0].query('SELECT * FROM products INNER JOIN thumbnails ON products.id = thumbnails.thumb_id WHERE products.id = 8629947')
-      .then(e => {
+      .then(err => {
         deferred.resolve();
       })
     }

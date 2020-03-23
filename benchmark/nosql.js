@@ -32,7 +32,7 @@ Promise.all([
   suite.add('Mongoose', {
     defer: true,
     fn: deferred => {
-      productModel.findOne({ _id: '5e0980925349f02e58d1c27b' }).exec().then(e => {
+      productModel.findOne({ _id: '5e0980925349f02e58d1c27b' }).exec().then(err => {
         deferred.resolve();
       });
     }
@@ -40,7 +40,7 @@ Promise.all([
   .add('MongoDB', {
     defer: true,
     fn: deferred => {
-      nativeCollection.findOne({ _id: '5e0980925349f02e58d1c27b' }, null, (e, r) => {
+      nativeCollection.findOne({ _id: '5e0980925349f02e58d1c27b' }, null, (err, res) => {
         deferred.resolve();
       })
     }
