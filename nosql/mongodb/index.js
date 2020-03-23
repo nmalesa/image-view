@@ -12,12 +12,15 @@ app.use(express.urlencoded({ extended: true }));
 MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true }, (err, database) => {
   if (err) return console.log(err);
   db = database.db('images');
-  app.listen(port, () => console.log(`Listening on port ${port}...`));
 });
 
 app.get('/products/:id', (req, res) => {
-  db.collection('products').findOne({ _id: req.params.id }, (err, results) => {
+  const objId = new require('mongodb').ObjectID(req.params.id);
+
+  db.collection('products').findOne({ _id: objId }, (err, results) => {
     if (err) return console.log(err);
-    console.log('Found the following document:', results);
+    res.send(results);
   });
 });
+
+app.listen(port, () => console.log(`Listening on port ${port}...`));
