@@ -4,8 +4,6 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 const port = process.env.PORT || 3030;
 
-let db;
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -13,6 +11,8 @@ MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true }, (
   if (err) return console.log(err);
   db = database.db('images');
 });
+
+let db;
 
 app.get('/products/:id', (req, res) => {
   const objId = new require('mongodb').ObjectID(req.params.id);
