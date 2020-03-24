@@ -7,6 +7,8 @@ const dbName = 'images';
 
 const client = new MongoClient(url, { useUnifiedTopology: true });
 
+const objId = new require('mongodb').ObjectID('5e0980925349f02e58d1c27b');
+
 // const indexCollection = function(db, callback) {
 //   db.collection('products').createIndex(
 //     { name: 1 },
@@ -22,7 +24,7 @@ const client = new MongoClient(url, { useUnifiedTopology: true });
 const findDocument = function(db, callback) {
   const collection = db.collection('products');
 
-  collection.findOne({ name: 'Handmade Frozen Computer', description: 'Persistent 6th generation success' }, (err, docs) => {
+  collection.findOne({ _id: objId }, (err, docs) => {
     assert.equal(err, null);
     console.log('Found the following record:');
     console.log(docs);

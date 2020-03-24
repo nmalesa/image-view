@@ -29,10 +29,12 @@ Promise.all([
 
   let nativeCollection = clients[1].db('images').collection('products');
 
+  let objId = new require('mongodb').ObjectID('5e0980925349f02e58d1c27b');
+
   suite.add('Mongoose', {
     defer: true,
     fn: deferred => {
-      productModel.findOne({ _id: '5e0980925349f02e58d1c27b' }).exec().then(err => {
+      productModel.findOne({ _id: objId }).exec().then(err => {
         deferred.resolve();
       });
     }
@@ -40,7 +42,7 @@ Promise.all([
   .add('MongoDB', {
     defer: true,
     fn: deferred => {
-      nativeCollection.findOne({ _id: '5e0980925349f02e58d1c27b' }, null, (err, res) => {
+      nativeCollection.findOne({ _id: objId }, null, (err, res) => {
         deferred.resolve();
       })
     }
