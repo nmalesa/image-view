@@ -48,3 +48,11 @@ export default () => {
 
   sleep(1);
 };
+
+// SQL Endpoints:  6384294 (Practical Steel Computer), 7049283 (Intelligent Plastic Bike),
+// 8629947 (Gorgeous Concrete Sausages),9858273 (Generic Plastic Fish)
+
+// NoSQL Endpoints:  5e097e8caef09d70882401b0 (Generic Plastic Bike),
+// 5e0980735349f02e58c8e642 (Handmade Frozen Computer)
+// 5e0980925349f02e58d1c27b (Licensed Rubber Gloves),
+// 5e0a204fefa1974cfc522e59 (Fantastic Metal Cheese)

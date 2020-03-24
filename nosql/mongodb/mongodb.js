@@ -22,7 +22,7 @@ const client = new MongoClient(url, { useUnifiedTopology: true });
 const findDocument = function(db, callback) {
   const collection = db.collection('products');
 
-  collection.findOne({ _id: '5e0980925349f02e58d1c27b' }, (err, docs) => {
+  collection.findOne({ name: 'Handmade Frozen Computer', description: 'Persistent 6th generation success' }, (err, docs) => {
     assert.equal(err, null);
     console.log('Found the following record:');
     console.log(docs);
