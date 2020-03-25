@@ -65,7 +65,7 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
 <table>
   <thead>
     <tr>
-      <th colspan="7">HTTP Request Duration (ms)--Load Test</th>
+      <th colspan="7">HTTP Request Duration (ms):  Load Test</th>
     </tr>
     <tr>
       <th colspan="1"></th>
@@ -90,9 +90,13 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
       <td></td>
       <td></td>
       <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>Minimum</th>
+      <td></td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -104,9 +108,13 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
       <td></td>
       <td></td>
       <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>Maximum</th>
+      <td></td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -118,9 +126,13 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
       <td></td>
       <td></td>
       <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>p(95)</th>
+      <td></td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -131,9 +143,246 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
 
 #### Stress Test
 
+<table>
+  <thead>
+    <tr>
+      <th colspan="7">HTTP Request Duration (ms):  Stress Test</th>
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="2">Without Caching</th>
+      <th colspan="2">Memcached</th>
+      <th colspan="2">Redis</th>
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Average</th>
+      <td>123.6</td>
+      <td>34.01</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Minimum</th>
+      <td>0.879</td>
+      <td>0.681</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Median</th>
+      <td>13.27</td>
+      <td>4.77</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Maximum</th>
+      <td>46210</td>
+      <td>2010</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>p(90)</th>
+      <td>227.03</td>
+      <td>67.03</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>p(95)</th>
+      <td>642.76</td>
+      <td>171.95</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
 #### Spike Test
 
+<table>
+  <thead>
+    <tr>
+      <th colspan="7">HTTP Request Duration (ms):  Spike Test</th>
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="2">Without Caching</th>
+      <th colspan="2">Memcached</th>
+      <th colspan="2">Redis</th>
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Average</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Minimum</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Median</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Maximum</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>p(90)</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>p(95)</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
 #### Soak Test
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="7">HTTP Request Duration (ms):  Spike Test</th>
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="2">Without Caching</th>
+      <th colspan="2">Memcached</th>
+      <th colspan="2">Redis</th>
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Average</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Minimum</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Median</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Maximum</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>p(90)</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>p(95)</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Load Testing Conclusion
 
