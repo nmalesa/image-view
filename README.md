@@ -28,14 +28,14 @@ _Mongoose_:  896 ops/sec ± 5.52%
 
 _MongoDB_:  1,794 ops/sec ± 5.18%
 
-![alt text](https://raw.githubusercontent.com/nmalesa/image-view/master/benchmark/plotly/nosql.png "Bar Chart Displaying NoSQL Benchmarking Statistics")
+![alt text](https://raw.githubusercontent.com/nmalesa/image-view/master/benchmark/plotly/assets/nosql.png "Bar Chart Displaying NoSQL Benchmarking Statistics")
 
 #### SQL
 _Sequelize_:  432 ops/sec ± 4.98%
 
 _MariaDB_:  3,290 ops/sec ± 3.36%
 
-![alt text](https://raw.githubusercontent.com/nmalesa/image-view/master/benchmark/plotly/sql.png "Bar Chart Displaying SQL Benchmarking Statistics")
+![alt text](https://raw.githubusercontent.com/nmalesa/image-view/master/benchmark/plotly/assets/sql.png "Bar Chart Displaying SQL Benchmarking Statistics")
 
 #### Query by Name
 Retrieving the same image by product name rather than by ID yielded the following
@@ -62,30 +62,19 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
 
 #### Load Test
 
-#### Stress Test
-
-#### Spike Test
-
-#### Soak Test
-
-### Load Testing Results
-
 <table>
   <thead>
     <tr>
-      <th colspan="9">HTTP Request Duration (ms)</th>
+      <th colspan="7">HTTP Request Duration (ms)--Load Test</th>
     </tr>
     <tr>
       <th colspan="1"></th>
-      <th colspan="2">Load</th>
-      <th colspan="2">Stress</th>
-      <th colspan="2">Spike</th>
-      <th colspan="2">Soak</th>
+      <th colspan="2">Without Caching</th>
+      <th colspan="2">Memcached</th>
+      <th colspan="2">Redis</th>
     </tr>
     <tr>
       <th colspan="1"></th>
-      <th colspan="1">MongoDB</th>
-      <th colspan="1">MariaDB</th>
       <th colspan="1">MongoDB</th>
       <th colspan="1">MariaDB</th>
       <th colspan="1">MongoDB</th>
@@ -97,24 +86,54 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
   <tbody>
     <tr>
       <th>Average</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>Minimum</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>Median</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>Maximum</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>p(90)</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th>p(95)</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
+
+#### Stress Test
+
+#### Spike Test
+
+#### Soak Test
 
 ### Load Testing Conclusion
 
