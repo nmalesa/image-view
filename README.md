@@ -169,55 +169,55 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
       <th>Average</th>
       <td>123.6</td>
       <td>34.01</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>21.44</td>
+      <td>13.98</td>
+      <td>38.71</td>
+      <td>18.31</td>
     </tr>
     <tr>
       <th>Minimum</th>
       <td>0.879</td>
       <td>0.681</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>0.409</td>
+      <td>0.441</td>
+      <td>0.461</td>
+      <td>0.431</td>
     </tr>
     <tr>
       <th>Median</th>
       <td>13.27</td>
       <td>4.77</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>5.18</td>
+      <td>3.89</td>
+      <td>25.89</td>
+      <td>5.78</td>
     </tr>
     <tr>
       <th>Maximum</th>
       <td>46210</td>
       <td>2010</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>1080</td>
+      <td>2110</td>
+      <td>1020</td>
+      <td>711.32</td>
     </tr>
     <tr>
       <th>p(90)</th>
       <td>227.03</td>
       <td>67.03</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>48.13</td>
+      <td>32.09</td>
+      <td>87.33</td>
+      <td>45.32</td>
     </tr>
     <tr>
       <th>p(95)</th>
       <td>642.76</td>
       <td>171.95</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>75.07</td>
+      <td>59.46</td>
+      <td>136.32</td>
+      <td>68.06</td>
     </tr>
   </tbody>
 </table>
