@@ -4,6 +4,8 @@ This application explores scalability by subjecting a representative image view 
 on an e-commerce site to a variety of tests in order to optimize system design for
 performance.
 
+## Stack
+
 ## Record Generation
 
 ## Benchmarking Databases
@@ -51,10 +53,69 @@ _Sequelize_: 0.13 ops/sec ± 23.87%
 
 _MariaDB_: 0.11 ops/sec ± 11.18%
 
+### Benchmarking Conclusion
 
-## Load Testing
 
+## Caching and Load Testing
 
-### Development
+### Test Types
 
-### Production
+#### Load Test
+
+#### Stress Test
+
+#### Spike Test
+
+#### Soak Test
+
+### Load Testing Results
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="9">HTTP Request Duration (ms)</th>
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="2">Load</th>
+      <th colspan="2">Stress</th>
+      <th colspan="2">Spike</th>
+      <th colspan="2">Soak</th>
+    </tr>
+    <tr>
+      <th colspan="1"></th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+      <th colspan="1">MongoDB</th>
+      <th colspan="1">MariaDB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Average</th>
+    </tr>
+    <tr>
+      <th>Minimum</th>
+    </tr>
+    <tr>
+      <th>Median</th>
+    </tr>
+    <tr>
+      <th>Maximum</th>
+    </tr>
+    <tr>
+      <th>p(90)</th>
+    </tr>
+    <tr>
+      <th>p(95)</th>
+    </tr>
+  </tbody>
+</table>
+
+### Load Testing Conclusion
+
+## Deployment
