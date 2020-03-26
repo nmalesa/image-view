@@ -194,7 +194,7 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
     </tr>
     <tr>
       <th>Maximum</th>
-      <td>46210</td>
+      <td>46,210</td>
       <td>2010</td>
       <td>1080</td>
       <td>2110</td>
@@ -308,7 +308,7 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
 <table>
   <thead>
     <tr>
-      <th colspan="7">HTTP Request Duration (ms):  Spike Test</th>
+      <th colspan="7">HTTP Request Duration (ms):  Soak Test</th>
     </tr>
     <tr>
       <th colspan="1"></th>
@@ -329,57 +329,57 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
   <tbody>
     <tr>
       <th>Average</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>760.58</td>
+      <td>84.24</td>
+      <td>61.7</td>
+      <td>29.67</td>
+      <td>9.94</td>
+      <td>15.43</td>
     </tr>
     <tr>
       <th>Minimum</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>Median</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>398.08</td>
+      <td>7.66</td>
+      <td>40.26</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2.55</td>
     </tr>
     <tr>
       <th>Maximum</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>1,201,000</td>
+      <td>2,408,000</td>
+      <td>626,000</td>
+      <td>580,000</td>
+      <td>44,910</td>
+      <td>1,320,000</td>
     </tr>
     <tr>
       <th>p(90)</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>1350</td>
+      <td>158.65</td>
+      <td>104.46</td>
+      <td>34.45</td>
+      <td>15.42</td>
+      <td>9.96</td>
     </tr>
     <tr>
       <th>p(95)</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>1800</td>
+      <td>353.48</td>
+      <td>144.01</td>
+      <td>80.63</td>
+      <td>33.28</td>
+      <td>16.45</td>
     </tr>
   </tbody>
 </table>
