@@ -53,7 +53,7 @@ _Sequelize_: 0.13 ops/sec ± 23.87%
 
 _MariaDB_: 0.11 ops/sec ± 11.18%
 
-### Benchmarking Conclusion
+### Benchmarking Conclusions
 
 
 ## Caching and Load Testing
@@ -248,57 +248,57 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
   <tbody>
     <tr>
       <th>Average</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>5130</td>
+      <td>2140</td>
+      <td>1870</td>
+      <td>1280</td>
+      <td>1210</td>
+      <td>1170</td>
     </tr>
     <tr>
       <th>Minimum</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>1.08</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>Median</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>1080</td>
+      <td>2460</td>
+      <td>381.44</td>
+      <td>334.95</td>
+      <td>381.74</td>
+      <td>296.13</td>
     </tr>
     <tr>
       <th>Maximum</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>22,240</td>
+      <td>66,000</td>
+      <td>60,000</td>
+      <td>60,000</td>
+      <td>61,000</td>
+      <td>60,000</td>
     </tr>
     <tr>
       <th>p(90)</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>11,830</td>
+      <td>2790</td>
+      <td>2260</td>
+      <td>1260</td>
+      <td>1840</td>
+      <td>1010</td>
     </tr>
     <tr>
       <th>p(95)</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>12,530</td>
+      <td>3520</td>
+      <td>5690</td>
+      <td>2510</td>
+      <td>4150</td>
+      <td>2590</td>
     </tr>
   </tbody>
 </table>
@@ -384,6 +384,6 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
   </tbody>
 </table>
 
-### Load Testing Conclusion
+### Caching and Load Testing Conclusions
 
 ## Deployment

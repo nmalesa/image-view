@@ -19,25 +19,25 @@ export default () => {
   let responses = http.batch([
     [
       'GET',
-      `${BASE_URL}/5e097e8caef09d70882401b9/`,
+      `${BASE_URL}/6384294/`,
       null,
       { tags: { ctype: 'html', name: 'Practical Steel Computer' } }
     ],
     [
       'GET',
-      `${BASE_URL}/5e0980735349f02e58c8e641/`,
+      `${BASE_URL}/7049283/`,
       null,
       { tags: { ctype: 'html', name: 'Intelligent Plastic Bike' } }
     ],
     [
       'GET',
-      `${BASE_URL}/5e0980925349f02e58d1c27a/`,
+      `${BASE_URL}/8629947/`,
       null,
       { tags: { ctype: 'html', name: 'Gorgeous Concrete Sausages' } }
     ],
     [
       'GET',
-      `${BASE_URL}/5e0a204fefa1974cfc522e58/`,
+      `${BASE_URL}/9858273/`,
       null,
       { tags: { ctype: 'html', name: 'Generic Plastic Fish' } }
     ]
