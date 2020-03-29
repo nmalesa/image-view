@@ -4,6 +4,6 @@ RUN mkdir -p /usr/src/app
 
 COPY index.js /usr/src/app
 
-EXPOSE 8080
+EXPOSE 3030
 
 CMD [ "node", "/usr/src/app/index" ]
