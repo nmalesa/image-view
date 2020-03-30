@@ -4,7 +4,7 @@ require('dotenv').config({ path: '../.env' });  // Recommended on MariaDB docs
 
 const pool = mariadb.createPool({
   host: 'mariadb',
-  port: '3030',
+  port: '3306',
   user: 'root',
   password: 'password',
   connectionLimit: 5,
