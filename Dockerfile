@@ -1,9 +1,13 @@
-FROM node
+FROM node:latest
 
-RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-COPY index.js /usr/src/app
+COPY package*.json ./
 
-EXPOSE 3030
+RUN npm install
 
-CMD [ "node", "/usr/src/app/index" ]
+COPY . .
+
+EXPOSE 8080
+
+CMD [ "node", "index.js" ]
