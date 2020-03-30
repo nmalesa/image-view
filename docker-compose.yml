@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    build: ./sql/mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=images
+      - MYSQL_USER=root
+
+  redis-server:
+    image: 'redis'
+
+  node-app:
+    build: .
+    ports:
+      - "8081:8080"

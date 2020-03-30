@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS images;
+CREATE DATABASE IF NOT EXISTS images;
 
-CREATE DATABASE images;
+GRANT ALL PRIVILEGES on images.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
 
 USE images;
 SET character_set_client=utf8, character_set_connection=utf8, character_set_database=utf8, character_set_results=utf8, character_set_server=utf8;

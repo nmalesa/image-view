@@ -8,7 +8,12 @@ const port = 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-let client = redis.createClient();
+let client = redis.createClient({
+  host: 'redis-server',
+  port: 6379
+});
+
+// let client = redis.createClient();
 
 let redisMiddleware = (req, res, next) => {
   let key = '__express__' + req.originalUrl || req.url;
