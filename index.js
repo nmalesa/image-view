@@ -3,17 +3,18 @@ const { pool, retrieveImage } = require('./sql/mariadb/db.js');
 const redis = require('redis');
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 3030;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-let client = redis.createClient({
-  host: 'redis-server',
-  port: 6379
-});
+// CONFIGURATION FOR DOCKER-COMPOSE
+// let client = redis.createClient({
+//   host: 'redis-server',
+//   port: 6379
+// });
 
-// let client = redis.createClient();
+let client = redis.createClient();
 
 let redisMiddleware = (req, res, next) => {
   let key = '__express__' + req.originalUrl || req.url;
