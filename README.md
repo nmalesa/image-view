@@ -389,3 +389,13 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
 ## Deployment
 
 ### Database:  AWS RDS (with AWS Glue) vs. Docker Compose vs. SSH Tunneling
+Notes:  AWS = Lower latency and higher throughput
+
+### Setup
+#### Initialize and Configure the Server
+- Initialize an AWS EC2 t2.micro instance with a CentOS distribution.
+- When configuring authentication, create an SSH key because having passwords on the root user is less secure.
+- On the root user:
+..- `yum -y update`:  Update all packages on the new Linux server.
+..- `yum -y groupinstall "Development Tools"`:  This group contains additional utilities and tools for building native Node.js dependencies (while not specifically made for Node.js, what is required for Node.js is here).
+..- `yum -y install vim net-tools`:  Net-tools is a package containing commands to determine IP addresses, open ports, etc.
