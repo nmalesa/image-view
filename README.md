@@ -60,7 +60,7 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
 
 ### Test Types
 
-#### Load Test
+#### Latency
 
 <table>
   <thead>
@@ -387,3 +387,5 @@ _MariaDB_: 0.11 ops/sec ± 11.18%
 ### Caching and Load Testing Conclusions
 
 ## Deployment
+
+### Database:  AWS RDS (with AWS Glue) vs. Docker Compose vs. SSH Tunneling
