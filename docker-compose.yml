@@ -1,0 +1,33 @@
+version: '3.2'
+services:
+  backend1:
+      build: .
+      tty: true
+
+  backend2:
+      build: .
+      tty: true
+
+  backend3:
+      build: .
+      tty: true
+
+  nginx:
+    build: ./nginx-docker
+    tty: true
+    links:
+      - backend1
+      - backend2
+      - backend3
+    ports:
+      - "3030:3030"
+
+  db:
+    build: ./sql/mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=images
+      - MYSQL_USER=root
+
+  redis-server:
+    image: 'redis'

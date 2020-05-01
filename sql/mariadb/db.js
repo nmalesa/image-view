@@ -13,11 +13,12 @@ require('dotenv').config({ path: '../.env' });  // Recommended on MariaDB docs
 // });
 
 const pool = mariadb.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
+  host: 'ecommerce-sdc.cdtoyfvfv5qc.us-east-1.rds.amazonaws.com',
+  port: 3306,
+  user: 'admin',
+  password: 'melaniecat',
   connectionLimit: 5,
-  database: 'images'
+  database: 'products'
 });
 
 async function retrieveImage(id) {
