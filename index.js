@@ -1,7 +1,6 @@
 const express = require('express');
 const { pool, retrieveImage } = require('./sql/mariadb/db.js');
 const redis = require('redis');
-const request = require('request');
 
 const app = express();
 const port = process.env.PORT || 3030;
@@ -38,7 +37,7 @@ app.get('/products/:id', redisMiddleware, async (req, res) => {
   try {
     let retrievedImage = await retrieveImage(req.params.id);
     res.send(retrievedImage);
-    console.log(`${process.env.MESSAGE}`);
+    // console.log(`${process.env.MESSAGE}`);
   } catch (error) {
     res.send(error);
   }

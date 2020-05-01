@@ -2,6 +2,16 @@ const mariadb = require('mariadb');
 const { Benchmark } = require('benchmark');
 require('dotenv').config({ path: '../.env' });  // Recommended on MariaDB docs
 
+// SSH TUNNELING
+// const pool = mariadb.createPool({
+//   host: '127.0.0.1',
+//   user: 'root',
+//   password: 'password',
+//   connectionLimit: 5,
+//   database: 'images',
+//   port: 3306
+// });
+
 const pool = mariadb.createPool({
   host: 'localhost',
   user: 'root',

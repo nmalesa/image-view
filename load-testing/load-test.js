@@ -13,6 +13,12 @@ export let options = {
   ],
   thresholds: {
     http_req_duration: ['p(99)<1500'],
+  },
+  ext: {
+    loadimpact: {
+      projectID: 3489455,
+      name: "E-Commerce System Design"
+    }
   }
 };
 
