@@ -393,9 +393,25 @@ Notes:  AWS = Lower latency and higher throughput
 
 ### Setup
 #### Initialize and Configure the Server
-- Initialize an AWS EC2 t2.micro instance with a CentOS distribution.
-- When configuring authentication, create an SSH key because having passwords on the root user is less secure.
-- On the root user:
-..- `yum -y update`:  Update all packages on the new Linux server.
-..- `yum -y groupinstall "Development Tools"`:  This group contains additional utilities and tools for building native Node.js dependencies (while not specifically made for Node.js, what is required for Node.js is here).
-..- `yum -y install vim net-tools`:  Net-tools is a package containing commands to determine IP addresses, open ports, etc.
+First, initialize an AWS EC2 t2.micro instance with a CentOS distribution.  When configuring authentication, make sure to create an SSH key because having passwords on the root user is less secure.  
+
+The IP address for this server is: [167.99.49.128](167.99.49.128)
+
+Then, on the root user:
+* `yum -y update`:  Update all packages on the new Linux server.
+* `yum -y groupinstall "Development Tools"`:  This group contains additional utilities and tools for building native Node.js dependencies (while not specifically made for Node.js, what is required for Node.js is here).
+* `yum -y install vim net-tools`:  net-tools is a package containing commands to determine IP addresses, open ports, etc.
+
+#### Install Node.js and PM2 on CentOS
+To install Node.js via package manager, go to [NodeSource Node.js Binary Distributions](https://github.com/nodesource/distributions/blob/master/README.md) and follow instructions to install the Node.js repository for CentOS as root.  Then install Node.js:  `yum -y install nodejs`.
+
+Additionally, run:  `npm install -g pm2 http-server`.
+
+PM2 is a daemon process manager runs and manages web applications.
+
+http-server is a command-line http server that allows users to run an http server in any folder.  This server will help us make sure that Node.js is running, the server has registered the request, pages are being served, and the port is open.
+
+To test:
+* `echo "Hello World" > index.html`
+* `http-server`
+* Returns [http://167.99.49.128:8080](http://167.99.49.128:8080), which should display "Hello World" on the browser
